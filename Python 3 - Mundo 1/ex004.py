@@ -1,0 +1,16 @@
+info = input('Digite algo: ')
+print('A informação digitada é do tipo ', type(info))
+print('É {} que a informação digitada seja alfabética'.format(info.isalpha()))
+print('É numérico? ', info.isnumeric())
+print('É alfanumérico? ', info.isalnum())
+print('Está no padrão ASCII? ', info.isascii())
+print('É um dígito? ', info.isdigit())
+print('É maiúsculo? ', info.isupper())
+print('É minúsculo? ', info.islower())
+print('É um espaço? ', info.isspace())
+print('Está no formato Abcde? ', info.istitle())
+print('É decimal? ', info.isdecimal())
+print('É um identificador? ', info.isidentifier())
+print('É imprimível? ', info.isprintable())
+
+
