@@ -96,7 +96,7 @@ Importação de uma função única com `from <módulo> import <função>`
 ## CORES 
 
 `\033[<style;text;background>m`  
- | style | text | background
+ -- | style | text | background
 :---: | :---: | :---: | :---:
 none | 0 | -- | -- 
 bold | 1 | -- | --
