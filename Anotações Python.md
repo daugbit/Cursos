@@ -31,7 +31,8 @@ Importação de uma função única com `from <módulo> import <função>`
 	```
 	
 * `emoji`: retorna emojis
-	* `emoji.demojize('<código do emoji>', language='alias')` Obs: entre as aspas pode conter texto
+	* `emoji.demojize('<código do emoji>', language='alias')` Obs: entre as aspas pode conter texto  
+  
 
 ---
 
@@ -65,7 +66,8 @@ Importação de uma função única com `from <módulo> import <função>`
 
 * `<objeto>.split()`: separa uma string em uma lista de palavras
 
-* `<objeto>[x:y:z]`: x - primeira posição da string a ser exibida | y - posição posterior à última a ser exibida | z - passo
+* `<objeto>[x:y:z]`: x - primeira posição da string a ser exibida | y - posição posterior à última a ser exibida | z - passo  
+    
 
 ---
 
@@ -79,7 +81,8 @@ Importação de uma função única com `from <módulo> import <função>`
 * `<lista>.sort()`: ordena a lista por ordem crescente (se numérica) ou alfabética (se string)
 * `<lista>.sort(inverse=True)`: idem, mas ao contrário
 * `<lista>.sorted()`: retorna a lista ordenada, mas sem alterar a lista original
-* `<lista>.reverse()`: inverte a ordem da lista
+* `<lista>.reverse()`: inverte a ordem da lista  
+  
 
 ---
 
@@ -87,12 +90,13 @@ Importação de uma função única com `from <módulo> import <função>`
 
 * `for var in lista`: passa cada item da *lista*, passa o valor da item para a *variável* e executa os comandos dentro do laço
 
+  
 ---
 
 ## CORES 
 
 `\033[<style;text;background>m`
-	* style: 	0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
-	* text: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
-	* background:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white  
+	* __style__: 		0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
+	* __text__: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
+	* __background__:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white  
 
