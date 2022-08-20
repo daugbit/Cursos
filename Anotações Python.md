@@ -22,11 +22,13 @@ Importação de uma função única com `from <módulo> import <função>`
 
 * `pygame`: recursos para jogos e multimídia
 	ex:	execução de um arquivo mp3 local
+	```
 	pygame.mixer.init()
 	pygame.init()
 	pygame.mixer.music.load('<nome_arquivo_musica>')
 	pygame.mixer.music.play()
 	pygame.event.wait()
+	```
 	
 * `emoji`: retorna emojis
 	* `emoji.demojize('<código do emoji>', language='alias')` Obs: entre as aspas pode conter texto
