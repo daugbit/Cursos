@@ -96,22 +96,22 @@ Importação de uma função única com `from <módulo> import <função>`
 ## CORES 
 
 `\033[<style;text;background>m`  
-style | | text | background
+ | style | text | background
 :---: | :---: | :---: | :---:
-none | 0 | | 
-bold | 1 | |
-light | 2 | |
-italicized | 3 | |
-underlined | 4 | | 
-blink | 5 | | 
- -- | black | 30 | 40
- -- | red | 31 | 41
- -- | green | 32 | 42
- -- | yellow | 33 | 43
- -- | blue | 34 | 44
- -- | purple | 35 | 45
- -- | cian | 36 | 46
- -- | white | 37 | 47
+none | 0 | -- | -- 
+bold | 1 | -- | --
+light | 2 | -- | --
+italicized | 3 | -- | --
+underlined | 4 | -- | --
+blink | 5 | -- | -- 
+black | 30 | 40
+red | 31 | 41
+green | 32 | 42
+yellow | 33 | 43
+blue | 34 | 44
+purple | 35 | 45
+cian | 36 | 46
+white | 37 | 47
 
 	* __style__: 		0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
 	* __text__: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
