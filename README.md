@@ -1,11 +1,11 @@
-# Curso em Vídeo  
+# Curso em Vídeo
 
- Repositório para armazenamento e organização dos códigos desenvolvidos a partir dos exercícios propostos ao longo dos cursos de programação realizados por mim. Abaixo seguem os cursos finalizados e em andamento, bem como os detalhes de cada um.  
----
-
+Repositório para armazenamento e organização dos códigos desenvolvidos a partir dos exercícios propostos ao longo dos cursos de programação realizados por mim. Abaixo seguem os cursos finalizados e em andamento, bem como os detalhes de cada um.  
+  
 ## Lógica de programação / algoritmos
 `status: FINALIZADO`  
-Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. @gustavoguanabara  
+  
+Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
 ### Conteúdo:
 * Comandos de entrada e operadores
 * Operadores lógicos e relacionais
@@ -19,7 +19,24 @@ Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 
 ---
 ## Python 3 - Mundo 1
- 
+`status: FINALIZADO`  
+  
+Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
+### Conteúdo: 
+* Instalação de Python e Pycharm no Linux, MacOS e Windows
+* Tipos primitivos e saída de dados
+* Operadores aritméticos
+* Utilização de módulos
+* Manipulação de textos
+* Condicionais (if..else)
+* Cores no Python
  
 ---
 ## Python 3 - Mundo 2
+`status: EM ANDAMENTO`  
+  
+Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
+### Conteúdo: 
+* Condições aninhadas (if..elif)
+* Estrutura de repetição **for**
+* Estrutura de repetição **while**
