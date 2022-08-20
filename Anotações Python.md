@@ -97,32 +97,8 @@ Importação de uma função única com `from <módulo> import <função>`
 
 `\033[<style;text;background>m`  
   
--- | none | bold | light | italicized | underlined | blick | black | red | green | yellow | blue | purple | cian | white
+-- | none | bold | light | italic | underln | blick | black | red | green | yellow | blue | purple | cian | white
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
 text | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
-background | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
-
-
-
- -- | style | text | background
-:---: | :---: | :---: | :---:
-none | 0 | -- | -- 
-bold | 1 | -- | --
-light | 2 | -- | --
-italicized | 3 | -- | --
-underlined | 4 | -- | --
-blink | 5 | -- | -- 
-black | 30 | 40
-red | 31 | 41
-green | 32 | 42
-yellow | 33 | 43
-blue | 34 | 44
-purple | 35 | 45
-cian | 36 | 46
-white | 37 | 47
-
-	* __style__: 		0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
-	* __text__: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
-	* __background__:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white  
-
+back | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
