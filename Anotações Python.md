@@ -95,7 +95,7 @@ Importação de uma função única com `from <módulo> import <função>`
 
 ## CORES 
 
-`\033[<style;text;background>m`
+`\033[<style;text;background>m`  
 	* __style__: 		0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
 	* __text__: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
 	* __background__:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white  
