@@ -96,6 +96,15 @@ Importação de uma função única com `from <módulo> import <função>`
 ## CORES 
 
 `\033[<style;text;background>m`  
+  
+-- | none | bold | light | italicized | underlined | blick | black | red | green | yellow | blue | purple | cian | white
+:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
+text | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
+background | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
+
+
+
  -- | style | text | background
 :---: | :---: | :---: | :---:
 none | 0 | -- | -- 
