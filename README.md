@@ -1,4 +1,4 @@
-# Curso em Vídeo
+# Cursos
 
 Repositório para armazenamento e organização dos códigos desenvolvidos a partir dos exercícios propostos ao longo dos cursos de programação realizados por mim. Abaixo seguem os cursos finalizados e em andamento, bem como os detalhes de cada um.  
   
