@@ -4,8 +4,8 @@
 
 ## MÓDULOS
 
-Importação de módulos se dá a partir de `import <módulo>`
-Importação de uma função única com `from <módulo> import <função>`
+Importação de módulos se dá a partir de `import <módulo>`  
+Importação de uma função única com `from <módulo> import <função>`  
 
 * `math`: operações matemáticas básicas (sqrt, sin, cos, tan, radians, etc.)
 
@@ -92,7 +92,7 @@ Importação de uma função única com `from <módulo> import <função>`
 ## CORES 
 
 `\033[<style;text;background>m`
-	* style: 	0-none		1-bold		2-light	3-italicized	4-underlined	5-blink
-	* text: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white
-	* background:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white
+	* style: 	0-none		1-bold		2-light	3-italicized	4-underlined	5-blink  
+	* text: 		30-black	31-red		32-green	33-yellow	34-blue	35-purple	36-cian	37-white  
+	* background:	40-black	41-red		42-green	43-yellow	44-blue	45-purple	46-cian	47-white  
 
