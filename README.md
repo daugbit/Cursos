@@ -18,6 +18,24 @@ Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 * Matrizes
 
 ---
+## Git e GitHub
+`status: FINALIZADO`  
+  
+Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara).  
+### Conteúdo:
+* O que é Git e GitHub
+* Evolução do Git e GitHub
+* Instalações e configurações: Visual Studio Code, Git e GitHub Desktop (Windows, MacOS e Linux)
+* Criação de repositórios
+* Clonagem de repositórios
+* Versionamento de projetos
+* Issues
+* Markdown
+* Segurança da conta Github
+* Braches
+* GitHub Pages
+
+---
 ## Python 3 - Mundo 1
 `status: FINALIZADO`  
   
