@@ -73,6 +73,8 @@ Importação de uma função única com `from <módulo> import <função>`
 
 ## LISTAS
 
+* `range(x, y, z)`: cria uma série com valores entre **x** e **y**, pulando **z** valores
+  * `list(range(x, y, z))`: converte a série de valores em uma lista
 * `<lista>.insert(<posição>, <dado a ser inserido>)`: insere um dado na posição especificada da lista
 * `<lista>.append(<dado a ser inserido>)`: insere um dado na próxima posição em branco de uma lista
 * `del <lista>[x]`: deleta permanentemente o item na posição x da lista
@@ -82,7 +84,28 @@ Importação de uma função única com `from <módulo> import <função>`
 * `<lista>.sort(inverse=True)`: idem, mas ao contrário
 * `<lista>.sorted()`: retorna a lista ordenada, mas sem alterar a lista original
 * `<lista>.reverse()`: inverte a ordem da lista  
+* `min(<lista>)`: retorna o menor valor da lista
+* `max(<lista>)`: retorna o maior valor da lista
+* `sum(<lista>)`: retorna a soma dos valores da lista  
+  É possível criar uma lista com um lanço dentro da mesma. Ex.:  
+  `squares = [value ** 2 for value in range(1, 11)]`  
+  * `copia_lista = lista[:]`: copia a lista inteira (ou uma fatia, especificando o início e final) para uma segunda lista
+    * `copia_lista = lista`: conecta as duas listas. Adicionando valores em uma delas, vai para a outra também  
+* `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
+* `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
   
+
+### TUPLAS
+
+Semelhantes às listas, mas não são alteráveis. Usa-se `()` ao invés de `[]`. Porém, pode-se sobreescrever a variável inteira.  
+Ex.:  
+```
+colors = ('black', 'white', 'yellow')
+print(colors[1])
+```
+Retornaria: `white`
+
+
 
 ---
 
@@ -90,13 +113,23 @@ Importação de uma função única com `from <módulo> import <função>`
 
 * `for var in lista`: passa cada item da *lista*, passa o valor da item para a *variável* e executa os comandos dentro do laço
 
+
+---
+
+## CONDICIONAIS
+
+* `in`: permite verificar se um valor está numa lista, p.e.: `if chosed_color in beauty_colors:`  
+* `not in`: permite verificar se um valor **não** está numa lista, p.e.: `if chosed_color not in ugly_colors:`  
+* `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
+* `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista
   
 ---
 
 ## CORES 
 
 `\033[<style;text;background>m`  
-  
+
+      
 -- | none | bold | light | italic | underln | blick | black | red | green | yellow | blue | purple | cian | white
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
