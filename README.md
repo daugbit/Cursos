@@ -4,6 +4,7 @@ Repositório para armazenamento e organização dos códigos desenvolvidos a par
   
 ## Lógica de programação / algoritmos
 `status: FINALIZADO`  
+`40 horas`  
   
 Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
 ### Conteúdo:
@@ -20,6 +21,7 @@ Curso realizado em 07/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 ---
 ## Git e GitHub
 `status: FINALIZADO`  
+`20 horas`  
   
 Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara).  
 ### Conteúdo:
@@ -38,6 +40,7 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 ---
 ## Python 3 - Mundo 1
 `status: FINALIZADO`  
+`40 horas`  
   
 Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
 ### Conteúdo: 
@@ -52,6 +55,7 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 ---
 ## Python 3 - Mundo 2
 `status: EM ANDAMENTO`  
+`40 horas`  
   
 Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
 ### Conteúdo: 
