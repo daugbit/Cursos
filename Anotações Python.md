@@ -39,33 +39,26 @@ Importação de uma função única com `from <módulo> import <função>`
 ## MANIPULAÇÃO DE TEXTOS
 
 * `\n`: quebra de linha
-
-* `\t`: tabulação da linha 
-
+* `\t`: tabulação da linha
+* Espaçamentos e alinhamentos:  
+  * `{<var>:x}`: insere o valor da variável dentro de x espaços (o que for maior que var ficará com espaçamento em branco)  
+  * `{<var>:^x}`: idem, centralizado
+  * `{<var>:-^x}`: idem, com traços no lugar (ou qualquer outro caractere). Ex.: `-----var-----`  
+  * `{<var>:>x}`: alinhado à direita
+  * `{<var>:<x}`: alinhado à esquerda
 * `len(<objeto>)`: mostra o comprimento de uma string
-
 * `<objeto>.count(<trecho>)`: conta quantos trechos informados há dentro do objeto
-
 * `<objeto>.lower()`: transforma a string toda em minúsculo
-
 * `<objeto>.upper()`: transforma a string toda em maiúsculo
-
 * `<objeto>.capitalize()`: apenas a primeira letra da string em maiúsculo
-
 * `<objeto>.title()`: primeira letra de cada palavra da string em maiúsculo
-
 * `<objeto>.replace(<trecho>, <trecho>)`: troca um trecho de uma string
-
 * `<objeto>.strip()`: remove os espaços do início e final da string
-	`* <objeto>.(l/r)strip()`: remove os espaços do início/final da string
-	
+	* `<objeto>.(l/r)strip()`: remove os espaços do início/final da string
 * `''.join(<objetolista>)`: transforma uma lista de objetos em uma string única
 	* `'-'.join(<objetolista>)`: adiciona '-' (ou qualquer outro caractere) entre cada objeto na string
-
 * `<objeto>.find(<trecho>)`: informa a localização de um trecho numa string
-
 * `<objeto>.split()`: separa uma string em uma lista de palavras
-
 * `<objeto>[x:y:z]`: x - primeira posição da string a ser exibida | y - posição posterior à última a ser exibida | z - passo  
     
 
@@ -94,6 +87,7 @@ Importação de uma função única com `from <módulo> import <função>`
 * `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
   
+---
 
 ### TUPLAS
 
@@ -109,10 +103,12 @@ Retornaria: `white`
 
 ---
 
-## LAÇOS
+## LAÇOS DE REPETIÇÃO
 
 * `for var in lista`: passa cada item da *lista*, passa o valor da item para a *variável* e executa os comandos dentro do laço
-
+* `break`: interrempe o laço sem executar os comandos subsequentes que estão dentro do mesmo.  
+  * Pode-se iniciar o laço com `while True`  
+  
 
 ---
 
