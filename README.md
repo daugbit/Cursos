@@ -54,11 +54,25 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
  
 ---
 ## Python 3 - Mundo 2
-`status: EM ANDAMENTO`  
+`status: FINALIZADO`  
 `40 horas`  
   
 Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
 ### Conteúdo: 
 * Condições aninhadas (if..elif)
 * Estrutura de repetição **for**
-* Estrutura de repetição **while**
+* Estrutura de repetição **while**  
+  
+---
+## Python 3 - Mundo 3  
+`status: EM ANDAMENTO`  
+`40 horas`  
+  
+Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
+### Conteúdo:
+* Tuplas
+* Listas
+* Dicionários
+* Funções
+* Modularização
+* Tratamento de erros
