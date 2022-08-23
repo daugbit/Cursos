@@ -76,7 +76,9 @@ Importação de uma função única com `from <módulo> import <função>`
 * `<lista>.sort()`: ordena a lista por ordem crescente (se numérica) ou alfabética (se string)
 * `<lista>.sort(inverse=True)`: idem, mas ao contrário
 * `<lista>.sorted()`: retorna a lista ordenada, mas sem alterar a lista original
-* `<lista>.reverse()`: inverte a ordem da lista  
+* `<lista>.reverse()`: inverte a ordem da lista
+* `<lista>.count('valor')`: conta quantos valores específicos há dentro da lista
+* `<lista>.index(x, y)`: retorna a posição do valor x na lista, a partir da posição y (y pode ser ignorado para buscas a partir do início)
 * `min(<lista>)`: retorna o menor valor da lista
 * `max(<lista>)`: retorna o maior valor da lista
 * `sum(<lista>)`: retorna a soma dos valores da lista  
@@ -92,12 +94,15 @@ Importação de uma função única com `from <módulo> import <função>`
 ### TUPLAS
 
 Semelhantes às listas, mas não são alteráveis. Usa-se `()` ao invés de `[]`. Porém, pode-se sobreescrever a variável inteira.  
+As mesmas funções/comandos das listas são aplicáveis às tuplas (exceto alterações de conteúdo da tupla).  
+Tuplas podem ser compostas de tipos primitivos diferentes. Ex.: `pessoa = ('Douglas', 27, 'M', 90.5)`
 Ex.:  
 ```
 colors = ('black', 'white', 'yellow')
 print(colors[1])
 ```
-Retornaria: `white`
+Retornaria: `white`  
+  
 
 
 
