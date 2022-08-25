@@ -70,12 +70,12 @@ Importação de uma função única com `from <módulo> import <função>`
   * `list(range(x, y, z))`: converte a série de valores em uma lista
 * `<lista>.insert(<posição>, <dado a ser inserido>)`: insere um dado na posição especificada da lista
 * `<lista>.append(<dado a ser inserido>)`: insere um dado na próxima posição em branco de uma lista
-* `del <lista>[x]`: deleta permanentemente o item na posição x da lista
+* `del <lista>[x]`: deleta permanentemente o item na posição x da lista. Os itens à direita serão todos movidos 1 posição à esquerda
 * `var = <lista>.pop(x)`: passa o valor da posição x da lista para a variável, deletando o item da lista
 * `<lista>.remove('valor')`: exclui um valor da lista em qualquer posição (pode-se usar também uma variável que contenha esse valor)
 * `<lista>.sort()`: ordena a lista por ordem crescente (se numérica) ou alfabética (se string)
-* `<lista>.sort(inverse=True)`: idem, mas ao contrário
-* `<lista>.sorted()`: retorna a lista ordenada, mas sem alterar a lista original
+* `<lista>.sort(reverse=True)`: idem, mas ao contrário
+* `sorted(<lista>)`: retorna a lista ordenada, mas sem alterar a lista original
 * `<lista>.reverse()`: inverte a ordem da lista
 * `<lista>.count('valor')`: conta quantos valores específicos há dentro da lista
 * `<lista>.index(x, y)`: retorna a posição do valor x na lista, a partir da posição y (y pode ser ignorado para buscas a partir do início)
@@ -88,8 +88,8 @@ Importação de uma função única com `from <módulo> import <função>`
     * `copia_lista = lista`: conecta as duas listas. Adicionando valores em uma delas, vai para a outra também  
 * `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
+Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
   
----
 
 ### TUPLAS
 
@@ -110,7 +110,8 @@ Retornaria: `white`
 
 ## LAÇOS DE REPETIÇÃO
 
-* `for var in lista`: passa cada item da *lista*, passa o valor da item para a *variável* e executa os comandos dentro do laço
+* `for <v> in <lista>`: passa cada item da **lista**, passa o valor da item para a **v** e executa os comandos dentro do laço  
+  * `for <i>, <v> in enumerate(<lista>)`: puxa tanto o valor como a posição do item na lista
 * `break`: interrempe o laço sem executar os comandos subsequentes que estão dentro do mesmo.  
   * Pode-se iniciar o laço com `while True`  
   
