@@ -32,6 +32,8 @@ Importação de uma função única com `from <módulo> import <função>`
 	
 * `emoji`: retorna emojis
 	* `emoji.demojize('<código do emoji>', language='alias')` Obs: entre as aspas pode conter texto  
+
+* `operator.itemgetter`: pode ser utilizado para ordenar um dicionário - `ranking = sorted(jogadas.items(), key=itemgetter(1), reverse=True)`  
   
 
 ---
@@ -89,9 +91,11 @@ Importação de uma função única com `from <módulo> import <função>`
 * `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
 Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
-  
 
-### TUPLAS
+  
+---
+
+## TUPLAS
 
 Semelhantes às listas, mas não são alteráveis. Usa-se `()` ao invés de `[]`. Porém, pode-se sobreescrever a variável inteira.  
 As mesmas funções/comandos das listas são aplicáveis às tuplas (exceto alterações de conteúdo da tupla).  
@@ -103,7 +107,25 @@ print(colors[1])
 ```
 Retornaria: `white`  
   
+---
 
+## DICIONÁRIOS
+
+Semelhantes às listas e às tuplas, mas são identificados por `{}` e os índices dos dados/valores não precisam ser numéricos.  
+`<dicionario> = {'chave': valor, 'chave': 'str', ...}`  
+Ex.: `dados = {'name': 'Douglas', 'age': 27, 'gender': male}`
+* `<dicionário>.values()`: retorna os valores registrados dentro de cada chave.
+* `<dicionário>. keys()`: retorna as as chaves existentes dentro do dicionário
+* `<dicionário>.items()`: retorna chaves e valores do dicionário  
+Exemplo de laço com dicionário:  
+	```
+	for i, j in dicionário.items():
+		print(f'O {i} é {j}')
+	
+	>>> O valor é chave
+	```
+* `<lista>.append(<dicionário>.copy())`: copiar um dicionário para dentro de uma lista
+* `del <dicionário>['<chave>']`: deleta a chave e o respectivo valor do dicionário
 
 
 ---
