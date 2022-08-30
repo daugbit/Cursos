@@ -34,6 +34,8 @@ Importação de uma função única com `from <módulo> import <função>`
 	* `emoji.demojize('<código do emoji>', language='alias')` Obs: entre as aspas pode conter texto  
 
 * `operator.itemgetter`: pode ser utilizado para ordenar um dicionário - `ranking = sorted(jogadas.items(), key=itemgetter(1), reverse=True)`  
+
+* `sys.exit()`: encerra o programa imediatamente.  
   
 
 ---
@@ -136,6 +138,7 @@ Exemplo de laço com dicionário:
   * `for <i>, <v> in enumerate(<lista>)`: puxa tanto o valor como a posição do item na lista
 * `break`: interrempe o laço sem executar os comandos subsequentes que estão dentro do mesmo.  
   * Pode-se iniciar o laço com `while True`  
+* `continue`: retorna imediatamente para o início do laço, realizando novamente o teste da condição.  
   
 
 ---

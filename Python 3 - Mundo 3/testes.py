@@ -1,40 +1,16 @@
-lista = []
-for c in range(0, 4):
-    num = int(input('Digite um número: '))
-    if c == 0:
-        lista.append(num)
-    elif c == 1:
-        if num < lista[0]:
-            lista.insert(0, num)
-        else:
-            lista.append(num)
-    elif c == 2:
-        if num < min(lista):
-            lista.insert(0, num)
-        elif num > max(lista):
-            lista.append(num)
-        elif lista[0] < num < lista[1]:
-            lista.insert(1, num)
-    elif c == 3:
-        if num < min(lista):
-            lista.insert(0, num)
-        elif num > max(lista):
-            lista.append(num)
-        elif num > lista[1]:
-            lista.insert(2, num)
-        else:
-            lista.insert(1, num)
-    elif c == 4:
-        if num < min(lista):
-            lista.insert(0, num)
-        elif num > max(lista):
-            lista.append(num)
-        elif num < lista[1]:
-            lista.insert(1, num)
-        elif num < lista[2]:
-            lista.insert(2, num)
-        elif num < lista[3]:
-            lista.insert(3, num)
-        else:
-            lista.append(num)
-print(f'Você digitou os valores {lista}')
+import random, sys
+aliens = []
+new_alien = {}
+color = ['green', 'yellow', 'grey']
+speed = ['slow', 'medium', 'fast']
+for alien_number in range(1, 31):
+    new_alien = {'id': ('alien' + str(alien_number)),
+                 'color': random.choice(color),
+                 'speed': random.choice(speed),
+                 'points': random.randint(1, 9),
+                 }
+    aliens.append(new_alien)
+for i in aliens:
+    print('-*' * 20)
+    for j, k in i.items():
+        print(f'{j}: {k}')
