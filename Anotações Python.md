@@ -64,7 +64,19 @@ Importação de uma função única com `from <módulo> import <função>`
 * `<objeto>.find(<trecho>)`: informa a localização de um trecho numa string
 * `<objeto>.split()`: separa uma string em uma lista de palavras
 * `<objeto>[x:y:z]`: x - primeira posição da string a ser exibida | y - posição posterior à última a ser exibida | z - passo  
-    
+
+---
+
+## CORES 
+
+`\033[<style;text;background>m`  
+
+      
+-- | none | bold | light | italic | underln | blick | black | red | green | yellow | blue | purple | cian | white
+:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
+text | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
+back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 
 ---
 
@@ -152,13 +164,34 @@ Exemplo de laço com dicionário:
   
 ---
 
-## CORES 
+## FUNÇÕES
 
-`\033[<style;text;background>m`  
+Define-se a função (rotina) através da estrutura:  
+```
+def <função>():
+	<comandos da função>
 
-      
--- | none | bold | light | italic | underln | blick | black | red | green | yellow | blue | purple | cian | white
-:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
-text | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
-back | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
+<função>()
+```
+Para função com parâmetro personalizado, atribui-se dentro de **()**:
+```
+def <função>(msg)
+	<comandos da função>
+	
+<função>(<parâmetros personalização>)
+```
+Pode-se fazer o empacotamento dos parâmetros utilizando-se **(*)**. Para uma função que some um número indeterminado de valores, p.e.:
+```
+def <função>(*num)
+	s = 0
+	para num in values:
+		s += num
+
+<função>(1, 2, 3, 4)
+<função>(4, 5)
+...
+```
+* Caso o parâmetro seja uma lista, não é necessário utilizar **(*)**, pois o Python já a considera com tamanho variável.  
+
+
+

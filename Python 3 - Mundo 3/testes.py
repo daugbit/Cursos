@@ -1,4 +1,5 @@
-import random, sys
+import random
+from emoji import emojize
 aliens = []
 new_alien = {}
 color = ['green', 'yellow', 'grey']
