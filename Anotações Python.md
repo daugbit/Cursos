@@ -72,7 +72,7 @@ Importação de uma função única com `from <módulo> import <função>`
 `\033[<style;text;background>m`  
 
       
--- | none | bold | light | italic | underln | blick | black | red | green | yellow | blue | purple | cian | white
+-- | none | bold | light | italic | underl | blinck | black | red | green | yellow | blue | purple | cian | white
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 style | 0 | 1 | 2 | 3 | 4 | 5 | -- | -- | -- | -- | -- | -- | -- | --
 text | -- | -- | -- | -- | -- | -- | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 |
@@ -201,20 +201,16 @@ def função(a, b, c=0)
 
 ### Help e docstrings
 * Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  
-* Para inserção de docstring em uma função, inserir o texto de ajuda entre **""""""** logo após a defginição da função:  
+* Para inserção de docstring em uma função, inserir o texto de ajuda entre **"""** logo após a defginição da função:  
 ```
 def função():
-	""""""
+	"""
 	Esta é uma explicação da função.
 	Aqui podem ser dadas dicas.
 	Sempre entre 3x"".
-	""""""
+	"""
 	<início dos comandos das funções>
 ```
-
-
-
-
 
 
 
