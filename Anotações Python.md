@@ -192,6 +192,29 @@ def <função>(*num)
 ...
 ```
 * Caso o parâmetro seja uma lista, não é necessário utilizar **(*)**, pois o Python já a considera com tamanho variável.  
+* Pode-se unserir um argumento opcional, definindo qual valor deve receber caso o usuário opte por não utilizá-lo:  
+```
+def função(a, b, c=0)
+```
+* `global <var>`: torna o escopo da variável global.  
+* `return <var>`: retorna o resultado da operação dentro da função para o programa principal.  
+
+### Help e docstrings
+* Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  
+* Para inserção de docstring em uma função, inserir o texto de ajuda entre **""""""** logo após a defginição da função:  
+```
+def função():
+	""""""
+	Esta é uma explicação da função.
+	Aqui podem ser dadas dicas.
+	Sempre entre 3x"".
+	""""""
+	<início dos comandos das funções>
+```
+
+
+
+
 
 
 
