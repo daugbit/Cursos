@@ -50,6 +50,9 @@ Importação de uma função única com `from <módulo> import <função>`
   * `{<var>:-^x}`: idem, com traços no lugar (ou qualquer outro caractere). Ex.: `-----var-----`  
   * `{<var>:>x}`: alinhado à direita
   * `{<var>:<x}`: alinhado à esquerda
+  * `<objeto>.center(x)`: alinha o objeto ao centro num espaçamento **x**
+  * `<objeto>.ljust(x)`: alinha o objeto à esquerda num espaçamento **x**
+  * `<objeto>.rjust(x)`: alinha o objeto à direita num espaçamento **x**
 * `len(<objeto>)`: mostra o comprimento de uma string
 * `<objeto>.count(<trecho>)`: conta quantos trechos informados há dentro do objeto
 * `<objeto>.lower()`: transforma a string toda em minúsculo
