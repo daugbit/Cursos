@@ -19,6 +19,12 @@ Importação de uma função única com `from <módulo> import <função>`
 	
 * `time`: recursos de tempo
 	* `time.sleep(x)`: software aguarda por x segundos para continuar rodando
+	* `localtime`: retorna a hora local em segundos
+	* `strftime`: converte uma data/horário específicados (como pelo **localtime**) para uma string estruturada:  
+		```
+		strftime("%a, %d %b %Y %H:%M:%S", localtime())
+		```
+	Verificar a especificação de cada argumento em https://docs.python.org/3.8/library/time.html#module-time  
 
 * `pygame`: recursos para jogos e multimídia
 	ex:	execução de um arquivo mp3 local
@@ -36,6 +42,18 @@ Importação de uma função única com `from <módulo> import <função>`
 * `operator.itemgetter`: pode ser utilizado para ordenar um dicionário - `ranking = sorted(jogadas.items(), key=itemgetter(1), reverse=True)`  
 
 * `sys.exit()`: encerra o programa imediatamente.  
+
+* `urllib`: funções relacionadas a URLs, como verificar se um site está online, p.e.:  
+```
+import urllib.request
+import urllib.error
+try:
+	urllib.request.urlopen(<url_site>)
+except urllib.error.URLError:
+	print(f'\033[31mO site {name} não está acessível no momento.\033[m')
+else:
+	print(f'\033[32mO site {name} está acessível no momento.\033[m')
+```
   
 
 ---
@@ -214,6 +232,34 @@ def função():
 	"""
 	<início dos comandos das funções>
 ```
+
+---
+
+## ERROS E EXCEÇÕES
+
+* `try`: caso haja algum erro/exceção dentro desse bloco, o programa não irá retornar o erro.  
+* `except`: serão executados os comandos desse bloco caso tenha havido falha no bloco **try**.  
+* `else`: serão executados os comandos desse bloco caso **não** tenha havido falha no bloco **try**.  
+* `finally`: este bloco será executado independentemenhte de o bloco **try** ter tido falha ou não.  
+
+A estrutura pode conter vários **except**, especificando-se o que deve ser executado conforme o erro/exceção retornado pelo sistema:  
+```
+try:
+	n = int(input('Digite um número: '))
+except (ValueError, TypeError):
+	print('Há um problema com os valores digitados.')
+except ZeroDivisionError:
+	print('Não é possível fazer divisão por zero (0).')
+....
+```
+
+A causa ou o tipo de erro/exceção podem ser exibidos através da estrutura:  
+```
+except Exception as <var>:
+	print(f'O erro encontrado foi {<var>.__cause__}') # pode ser também {<var>.__class__}
+```
+
+
 
 
 
