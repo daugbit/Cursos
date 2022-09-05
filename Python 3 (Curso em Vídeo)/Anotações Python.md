@@ -62,6 +62,8 @@ else:
 
 * `\n`: quebra de linha
 * `\t`: tabulação da linha
+* `end=''`: faz com quer não haja quebra de linha ao final do **print** atual, podendo-se informar algum(ns) caracteres entre as aspas para serem exibidos nesse final.  
+* `sep=''`: usado para especificar como  valores dentro de um **print** devem ser separados.  
 * Espaçamentos e alinhamentos:  
   * `{<var>:x}`: insere o valor da variável dentro de x espaços (o que for maior que var ficará com espaçamento em branco)  
   * `{<var>:^x}`: idem, centralizado
