@@ -68,7 +68,7 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 `status: FINALIZADO`  
 `40 horas`  
   
-Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara)  
+Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) e ministrado pelo Prof. [Gustavo Guanabara](https://github.com/gustavoguanabara).  
 ### Conteúdo:
 * Tuplas
 * Listas
@@ -76,3 +76,28 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 * Funções
 * Modularização
 * Tratamento de erros
+
+---
+## Python 3 do básico ao avançado (com projetos reais)
+`status: EM ANDAMENTO`
+`113 horas`
+  
+Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-zero-ao-avancado/) e ministrado pelos Profs. [Luiz Otávio Miranda](https://github.com/luizomf) e [Tales Calogi Malaquias](https://www.udemy.com/user/tales-calogi-malaquias-2/).  
+### Conteúdo:
+* Preparação do ambiente de desenvolvimento
+* Lógica de programação
+* Programação procedural
+* Programação Orientada a Objetos - POO (Classes)
+* Módulos Python - os, datetime, sys, json, csv, selenium, ṕillow e mais
+* PyTQ5 - Interface gráfica no Python - GUI para desktop
+* Bases de Dados com Python - SQLite, MySQL, MariaDB
+* Django
+* Testes e TDD no Python - unittest
+* Type Annotations (hints)
+* Structural Pattern Matching
+* Design Patterns (GOF)
+* Expressões Regulares (Regex) - módulo re
+* Bases de Dados Relacionais - SQL com MySQL
+* HTML5 e CSS3 (iniciante)
+* Landing Page com HTML5 e CSS3 (iniciante)
+
