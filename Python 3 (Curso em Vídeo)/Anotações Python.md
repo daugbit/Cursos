@@ -261,6 +261,50 @@ except Exception as <var>:
 	print(f'O erro encontrado foi {<var>.__cause__}') # pode ser também {<var>.__class__}
 ```
 
+---
+## MANIPULAÇÃO DE ARQUIVOS
+
+* `<var> = open(name, 'rt')`: joga para a variável o arquivo aberto 'name'.	'r' = read	't' = text
+	* `'wt+'`: parâmetro para criação do arquivo. '**+**' irá criá-lo.	'w' = write	't' = text
+	* `'at'`: 'a' = append. Serve para preparar o arquivo para uma adição no mesmo
+		* executado o comando acima, deve-se executar `<var>.write(dados)` para gravação dos dados no arquivo
+* `<var>.close()`: fecha o arquivo jogado para dentro da variável
+* 
+
+---
+## CLASSES
+
+* Quando escrevemos uma classe, definimos o comportamento geral que toda uma categoria de objetos pode ter. Quando criamos objetos individuais a partir da classe, cada objeto será automaticamente equipado com o comportamento geral; então você poderá dar a cada objeto as características únicas que desejar.   
+* Uma classe sempre deve ser nomeada com a primeira letra maiúscula.  
+* Para criação de uma classe, usar a seguinte estrutura:  
+```
+class Classe():
+	def __init__(self, <var1>, <var2>,...)
+		self.var1 = var1
+		self.var2 = var2
+		...
+	
+	def método(self):
+	<comandos>
+```
+
+Para inserção de um objeto na classe (criação de instância):  
+```
+<objeto> = Classe('int', 'str',...)
+```
+
+Para acessar um atributo de uma das instâncias:
+```
+<objeto>.<var>
+```
+Para executar um método em determinada instância da classe:
+```
+<objeto>.método()
+```
+
+
+
+
 
 
 
