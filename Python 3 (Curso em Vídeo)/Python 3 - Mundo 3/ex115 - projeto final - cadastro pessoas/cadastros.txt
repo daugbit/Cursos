@@ -1,0 +1,10 @@
+Douglas;27
+Caroline;23
+Helena;65
+Paulo;68
+Rosa;57
+Gilberto;61
+Diego;40
+Jaqueline;43
+Guilherme;12
+Manuela;10
