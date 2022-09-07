@@ -106,7 +106,8 @@ back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 ## LISTAS
 
 * `range(x, y, z)`: cria uma série com valores entre **x** e **y**, pulando **z** valores
-  * `list(range(x, y, z))`: converte a série de valores em uma lista
+ * `list(range(x, y, z))`: converte a série de valores em uma lista
+* `list(str)`: pode ser usado para separar uma string por caracteres: `> 's', 't', 'r'` 
 * `<lista>.insert(<posição>, <dado a ser inserido>)`: insere um dado na posição especificada da lista
 * `<lista>.append(<dado a ser inserido>)`: insere um dado na próxima posição em branco de uma lista
 * `del <lista>[x]`: deleta permanentemente o item na posição x da lista. Os itens à direita serão todos movidos 1 posição à esquerda
@@ -301,7 +302,31 @@ Para executar um método em determinada instância da classe:
 ```
 <objeto>.método()
 ```
+Pode-se especificar um valor default para um atributo (no corpo do método \__init__), fazendo com que não seja necessário atribuir um parâmetro na chamada do método. Para atribuição de um outro valor posteriormente:
+```
+self.<objeto> = valor
+```
+Para incrementar o valor do atributo, basta utilizar **+=** no comando acima.  
 
+É possível modificar o valor de um atributo utilizando-se um método dedicado a isso:
+```
+def update_parameter(self, value)
+	self.object = value
+	
+<objeto>.update_parameter(valor)
+```
+Pode-se criar uma classe-filha com os atributos da classe-pai mais os próprios, utilizando a estrutura abaixo e método **super()**:
+```
+class ClassePai():
+	def __init__(self, 'atributo1', 'atributo2',...)
+	...
+	
+class ClasseFilha(ClassePai):
+	def __init__(self, 'atributo1', 'atributo2',...)
+	super().__init__('atributo1', 'atributo2', 'atributo3'...)
+	<comandos>
+```
+* Podemos sobreescrever um atributo da classe-pai nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o parâmetro do atributo inserido nela.  
 
 
 
