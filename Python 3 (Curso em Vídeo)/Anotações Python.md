@@ -162,8 +162,10 @@ Exemplo de laço com dicionário:
 	
 	>>> O valor é chave
 	```
-* `<lista>.append(<dicionário>.copy())`: copiar um dicionário para dentro de uma lista
-* `del <dicionário>['<chave>']`: deleta a chave e o respectivo valor do dicionário
+* `<lista>.append(<dicionário>.copy())`: copiar um dicionário para dentro de uma lista.  
+* `del <dicionário>['<chave>']`: deleta a chave e o respectivo valor do dicionário.  
+* `<dicionário>.get('key', x)`: retorna o valor da chave 'key' caso ela exista, ou x caso essa chave não exista.  
+* `<dicionário>.setdefault('key', 'value')`: determina um valor padrão para a chave 'key', caso um valor não seja informado.  
 
 
 ---
