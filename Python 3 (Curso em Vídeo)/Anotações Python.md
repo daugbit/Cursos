@@ -60,6 +60,8 @@ else:
 
 ## MANIPULAÇÃO DE TEXTOS
 
+* `f'string formatada com {variável}'`: string formatada com o valor de uma string.  
+* `r'raw \string'`: retorna a string ignorando o caractere de escape.  
 * `\n`: quebra de linha
 * `\t`: tabulação da linha
 * `end=''`: faz com quer não haja quebra de linha ao final do **print** atual, podendo-se informar algum(ns) caracteres entre as aspas para serem exibidos nesse final.  
@@ -70,9 +72,11 @@ else:
   * `{<var>:-^x}`: idem, com traços no lugar (ou qualquer outro caractere). Ex.: `-----var-----`  
   * `{<var>:>x}`: alinhado à direita
   * `{<var>:<x}`: alinhado à esquerda
-  * `<objeto>.center(x)`: alinha o objeto ao centro num espaçamento **x**
-  * `<objeto>.ljust(x)`: alinha o objeto à esquerda num espaçamento **x**
-  * `<objeto>.rjust(x)`: alinha o objeto à direita num espaçamento **x**
+  * `<objeto>.center(x, '*')`: alinha o objeto ao centro num espaçamento **x**, preenchido com o caractere '*' (pode ser ocultado caso sejam espaços).  
+  * `<objeto>.ljust(x, '*')`: alinha o objeto à esquerda num espaçamento **x**, preenchido com o caractere '*' (pode ser ocultado caso sejam espaços).  
+  * `<objeto>.rjust(x, '*')`: alinha o objeto à direita num espaçamento **x**, preenchido com o caractere '*' (pode ser ocultado caso sejam espaços).  
+* `<objeto>.startswith('str')`: retorna um valor booleano ao verificar se a string do objeto inicia com a string especificada 'str'.  
+* `<objeto>.endswith('str')`: retorna um valor booleano ao verificar se a string do objeto termina com a string especificada 'str'.  
 * `len(<objeto>)`: mostra o comprimento de uma string
 * `<objeto>.count(<trecho>)`: conta quantos trechos informados há dentro do objeto
 * `<objeto>.lower()`: transforma a string toda em minúsculo
@@ -82,6 +86,7 @@ else:
 * `<objeto>.replace(<trecho>, <trecho>)`: troca um trecho de uma string
 * `<objeto>.strip()`: remove os espaços do início e final da string
 	* `<objeto>.(l/r)strip()`: remove os espaços do início/final da string
+	* `<objeto>.strip('str')`: ao invés de remover espaços no início/final, vai remover os caracteres da string especificada (a ordem não importa).  
 * `''.join(<objetolista>)`: transforma uma lista de objetos em uma string única
 	* `'-'.join(<objetolista>)`: adiciona '-' (ou qualquer outro caractere) entre cada objeto na string
 * `<objeto>.find(<trecho>)`: informa a localização de um trecho numa string
@@ -177,6 +182,8 @@ Exemplo de laço com dicionário:
 * `break`: interrempe o laço sem executar os comandos subsequentes que estão dentro do mesmo.  
   * Pode-se iniciar o laço com `while True`  
 * `continue`: retorna imediatamente para o início do laço, realizando novamente o teste da condição.  
+
+Pode-se utilizar **else** nos laços também. O bloco contido nele será executado apenas se a condição do laço for falsa.  
   
 
 ---
@@ -225,7 +232,7 @@ def função(a, b, c=0)
 * `global <var>`: torna o escopo da variável global.  
 * `return <var>`: retorna o resultado da operação dentro da função para o programa principal.  
 
-### Help e docstrings
+### Help docstrings
 * Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  
 * Para inserção de docstring em uma função, inserir o texto de ajuda entre **"""** logo após a defginição da função:  
 ```
@@ -237,6 +244,7 @@ def função():
 	"""
 	<início dos comandos das funções>
 ```
+
 
 ---
 
@@ -262,6 +270,17 @@ A causa ou o tipo de erro/exceção podem ser exibidos através da estrutura:
 ```
 except Exception as <var>:
 	print(f'O erro encontrado foi {<var>.__cause__}') # pode ser também {<var>.__class__}
+```
+
+### Placeholders
+
+* `pass` ou `...`: placeholders utilizados em partes do código que ainda estão incompletas, fazendo com que o interpretador passe por esse ponto ignorando eventuais erros. Idelamente deve ser incluído um comentário especificando o que será feito nessa parte do código.
+```
+if True:
+	#A inserir o código para caso o teste seja verdadeiro
+	pass
+else:
+	print('not OK')
 ```
 
 ---
