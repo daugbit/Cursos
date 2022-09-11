@@ -339,7 +339,39 @@ else:
 	* `'at'`: 'a' = append. Serve para preparar o arquivo para uma adição no mesmo
 		* executado o comando acima, deve-se executar `<var>.write(dados)` para gravação dos dados no arquivo
 * `<var>.close()`: fecha o arquivo jogado para dentro da variável
-* 
+
+
+### Bloco with
+
+Uma forma de abrir e ler o conteúdo de um arquivo sem precisar fechá-lo (o Python decide quando fazer isso):
+```
+with open('arquivo.txt') as file_object:
+    contents = file_object.read()
+
+```
+
+Passamos o conteúdo de **file_object** para a variável **contents** pois, do contrário, o conteúdo do arquivo só ficará disponível em **file_object** dentro do bloco **with**.
+Para passa cada linha do arquivo para uma lista, podemos usar a seguinte estrutura:
+```
+with open('arquivo.txt') as file_object:
+    lista = file_object.readlines()
+```
+
+O comando **open('arquivo.txt')** só abrirá o arquivo se este estiver localizado no mesmo diretório do arquivo de Python em execução.  
+Quando o arquivo a ser aberto estiver em um sub-diretório dentro do diretório onde está o arquivo Python, pod-se utilizar um path de arquivo relativo:
+```
+with open('sub_directory/arquivo.txt') as file_object:
+    contents = file_object.read()
+```
+
+Quando o arquivo a ser aberto estiver em um diretório totalmente diferente, devemos utilizar um path de arquivo absoluto:
+```
+with open('/home/douglas/documents/sub_directory/arquivo.txt') as file_object:
+    contents = file_object.read()
+```
+
+* A fim de encurtar o argumento dentro de **open()**, pode-se armazenar o path em uma variável e utilizar esta última como argumento do comando.
+
 
 ---
 ## CLASSES
