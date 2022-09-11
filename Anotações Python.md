@@ -58,7 +58,7 @@ else:
 
 ---
 
-## MANIPULAÇÃO DE TEXTOS
+## MANIPULAÇÃO DE STRINGS
 
 * `f'string formatada com {variável}'`: string formatada com o valor de uma string.  
 * `r'raw \string'`: retorna a string ignorando o caractere de escape.  
@@ -92,6 +92,7 @@ else:
 * `<objeto>.find(<trecho>)`: informa a localização de um trecho numa string
 * `<objeto>.split()`: separa uma string em uma lista de palavras
 * `<objeto>[x:y:z]`: x - primeira posição da string a ser exibida | y - posição posterior à última a ser exibida | z - passo  
+* `x, y, z = y, z, x`: faz a troca dos valores contidos em cada varíval, conforme a posição do lado oposto da igualdade, sem precisar de variável de apoio.  
 
 ---
 
@@ -134,6 +135,25 @@ back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 * `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
 Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
+
+### Desempacotamento de listas
+
+Podemos fazer a extração total ou parcial de valores contidos em listas para variáveis simples.  
+```
+lista = ['valor1', 'valor2', 'valor3', 'valor4', 'valor5']
+
+#1 cada variável simples recebe um valor da lista
+n1, n2, n3, n4, n5 = lista
+
+#2 as duas primeiras variáveis recebem os primeiros valores da lista e o restante é incluído na lista2
+n1, n2, *lista2 = lista
+
+#3 as variáveis simples recebem os três últimos valores da lista e o restante (primeiros valores) é incluído na lista3
+*lista3, n1, n2, n3 = lista
+
+#4 as duas primeiras variáveis recebem os primeiros valores da lista e o restante é ignorado
+n1, n2, *_ = lista
+```
 
   
 ---
@@ -178,7 +198,7 @@ Exemplo de laço com dicionário:
 ## LAÇOS DE REPETIÇÃO
 
 * `for <v> in <lista>`: passa cada item da **lista**, passa o valor da item para a **v** e executa os comandos dentro do laço  
-  * `for <i>, <v> in enumerate(<lista>)`: puxa tanto o valor como a posição do item na lista
+  * `for <i>, <v> in enumerate(<lista>)`: puxa tanto o valor como o índice do item na lista
 * `break`: interrempe o laço sem executar os comandos subsequentes que estão dentro do mesmo.  
   * Pode-se iniciar o laço com `while True`  
 * `continue`: retorna imediatamente para o início do laço, realizando novamente o teste da condição.  
@@ -194,6 +214,34 @@ Pode-se utilizar **else** nos laços também. O bloco contido nele será executa
 * `not in`: permite verificar se um valor **não** está numa lista, p.e.: `if chosed_color not in ugly_colors:`  
 * `if <lista>:`: teste que retorna se uma lista está vazia (`False`) ou se contém ao menos um registro (`True`)  
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista
+
+### Operações ternárias
+
+Uma condição pode ser expressada com apenas uma linha, através de uma operação ternária:
+```
+<operação_se_condição1> if <condição1> else <operação_se_não_condição1>
+```
+Da mesma forma, pode-se dar um comando com o operador **or** que faz o teste booleano das variáveis e utiliza a primeira que for verdadeira:
+```
+name = input('Digite o seu nome: ')  # usuário deixa em branco
+print(name or 'Você não digitou nada')
+
+>>> 'Você não digitou nada'
+```
+ou:
+```
+a = False
+b = None
+c = {}
+d = []
+e = ''
+f = 'nome'
+g = 15
+
+var = a or b or c or d or e or f
+
+# a variável receberia o valor de f, que é a primeira com valor True.
+```
   
 ---
 

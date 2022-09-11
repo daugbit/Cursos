@@ -5,7 +5,7 @@ deve ser antecipadamente declarada na variável 'word'.
 
 from time import sleep
 
-word = 'MATO'
+word = 'FARINHA'
 guesses = 6
 right_letters = []
 wrong_letters = []
