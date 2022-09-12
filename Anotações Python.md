@@ -54,7 +54,8 @@ except urllib.error.URLError:
 else:
 	print(f'\033[32mO site {name} está acessível no momento.\033[m')
 ```
-  
+
+* `json`: módulo para salvar informações geradas pelos códigos em arquivos externos (ver **manipulação de arquivos** abaixo).  
 
 ---
 
@@ -370,8 +371,27 @@ with open('/home/douglas/documents/sub_directory/arquivo.txt') as file_object:
     contents = file_object.read()
 ```
 
-* A fim de encurtar o argumento dentro de **open()**, pode-se armazenar o path em uma variável e utilizar esta última como argumento do comando.
+* A fim de encurtar o argumento em **open()**, pode-se armazenar o path em uma variável e utilizar esta última como argumento do comando.
 
+
+### JSON
+
+O JSON é um módulo para salvar informações geradas pelos códigos em arquivos externos (.json), que podem ser posteriormente recuperadas e lidas pelo software.  
+
+* Para gravação, utiliza-se `json.dump(valor, arquivo)`:
+```
+lista = [1, 2, 3]
+with open('arquivo.json') as file_object:
+    json.dump(lista, file_object)
+```
+
+* Para leitura, utiliza-se `json.load(arquivo)`:
+```
+with open('arquivo.json') as file_object:
+    json.load(file_object)
+    print(lista)
+
+```
 
 ---
 ## CLASSES
