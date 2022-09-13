@@ -1,5 +1,5 @@
 """
-Progarama que gera, aleatoriamente, um CPF matematicamente válido.
+Progarama que gera um CPF matematicamente válido.
 """
 
 from random import randint
