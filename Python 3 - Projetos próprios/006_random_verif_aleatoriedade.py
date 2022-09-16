@@ -29,6 +29,7 @@ def tab(times):
         sublist.append(lista.count(i))
         sublist.append((sublist[1] / times) * 100)
         tabela.append(sublist)
+    tabela.sort(key=lambda i: i[2], reverse=True)
 
 
 def summary():

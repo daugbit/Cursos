@@ -156,7 +156,16 @@ n1, n2, *lista2 = lista
 n1, n2, *_ = lista
 ```
 
-  
+É possível ainda desempacotar uma lista ao passá-la como argumento de uma função. Por exemplo:
+```
+lista = [1, 2, 3, 4, 5]
+print(*lista, sep='-')
+
+>>> 1-2-3-4-5
+```
+Caso o argumento **sep** não seja informado, por padrão o espaço será utilizado como separador.
+
+
 ---
 
 ## TUPLAS
@@ -192,6 +201,113 @@ Exemplo de laço com dicionário:
 * `del <dicionário>['<chave>']`: deleta a chave e o respectivo valor do dicionário.  
 * `<dicionário>.get('key', x)`: retorna o valor da chave 'key' caso ela exista, ou x caso essa chave não exista.  
 * `<dicionário>.setdefault('key', 'value')`: determina um valor padrão para a chave 'key', caso um valor não seja informado.  
+* `<dicionário1>.update(<dicionário2>)`: concatena o dicionário 2 no dicionário 1 (o operador **+** não funciona para dicionários).  
+
+---
+
+## SETS (CONJUNTOS)
+
+É uma variável que armazena uma série de valores. Também é identificada por **{}**, sendo que não há o par chave-valor (apenas valor), sem qualquer ordem definida.  
+`var = {1, 2, 3, 4, 5}` ou `var = set()`
+**os conjuntos NÃO aceitam valores duplicados**. Útil para remover valores duplicados de uma lista.
+
+* `<set>.add(value)`: adição de um valor ao conjunto.  
+* `<set>.discard(value)`: exclusão de um valor do conjunto.  
+* `<set>.update(value)`: itera sobre o valor, adicionando cada caractere como um valor separado ({'v', 'a', 'l', 'u', 'e'}).  
+* `s3 = s1 | s2`: a função **union (|)** é utilizada para unir dois conjuntos.  
+* `s3 = s1 & s`: a função **intersection (&)** é utilizada para criar um conjunto que contenha os elementos que estejam presentes em ambos os outros conjuntos.  
+* `s3 = s1 - s2`: a função **diference** retorna para a variável s3 o conjunto de valores que estão no conjunto da esquerda, mas não no da direita.  
+* `s3 = s1 ^ s2`: a função **symetric_difference** retorna os valores dos dois conjuntos que NÃO estejam em ambos ao mesmo tempo.  
+
+---
+
+## LIST COMPREHENSIONS
+
+Forma de iterar sobre uma lista/tupla através de apenas uma linha de comando.  
+
+Em uma iteração de simples de 'cópia' de uma lista, por exemplo:
+```
+lista = [1, 2, 3, 4, 5]
+
+lista2 = [var for var in lista]
+print(lista2)
+
+>>> [1, 2, 3, 4, 5]
+```
+
+É possível aninhar um **for** adicional para executar uma outra operação, como criar coordenadas, por exemplo:
+```
+var1 = [0, 1, 2,]
+
+var2 = [[v1, v2] for v1 in var1 for v2 in range(3)]
+print(var2)
+
+>>> [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
+
+```
+ou para manipular os valores de tuplas/listas (no caso abaixo, inverter os valores e depois converter em dicionário):
+```
+tupla = (('chave1', 'valor1'), ('chave2', 'valor2'), ('chave3', 'valor3'))
+
+var = [(x, y) for x, y in tupla]
+var = dict(var)
+print(var)
+
+>>> {'valor1': 'chave1', 'valor2': 'chave2', 'valor3': 'chave3'}
+```
+
+Podemos filtrar os valores da lista utilizando **if** (inclusive mais de 1):
+```
+lista = list(range(20))
+
+pares = [num for num in lista if num % 2 == 0]
+print(pares)
+
+>>> [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+```
+```
+lista = list(range(20))
+
+pares = [num for num in lista if num % 2 == 0 if num % 5 != 0 if num % 4 != 0]
+print(pares)
+
+>>> [2, 6, 14, 18]
+```
+
+Para utilização de operadores ternários **if/else**:
+```
+lista = list(range(10))
+
+nums = [v if v % 3 == 0 else 'dif' for v in lista]
+print(nums)
+
+>>> [0, 'dif', 'dif', 3, 'dif', 'dif', 6, 'dif', 'dif', 9]
+```
+aninhando mais de uma condição:
+```
+lista = list(range(10))
+
+nums = [v if v % 3 == 0 and v < 9 else 'dif' for v in lista]
+print(nums)
+
+>>> [0, 'dif', 'dif', 3, 'dif', 'dif', 6, 'dif', 'dif', 'dif']
+```
+
+Também é possível tratar um valor da lista original e depois aplicar um filtro. No exemplo, caso o número seja diferente de 5 ele permanecerá o mesmo - mudando para 500 se for 5. Posteriormente aplicamos um filtro para apenas números ímpares:  
+```
+lista = list(range(10))
+
+nums = [v if v != 5 else 500 for v in lista if v % 2 != 0]
+print(nums)
+
+>>> [1, 3, 500, 7, 9]
+```
+
+Pode-se aninhar laços de repetição juntamente com as condicionais:
+```
+
+```
 
 
 ---
@@ -264,22 +380,52 @@ def <função>(msg)
 ```
 Pode-se fazer o empacotamento dos parâmetros utilizando-se **(*)**. Para uma função que some um número indeterminado de valores, p.e.:
 ```
-def <função>(*num)
+def <função>(*args)
 	s = 0
-	para num in values:
+	para args in values:
 		s += num
 
 <função>(1, 2, 3, 4)
 <função>(4, 5)
 ...
 ```
+* **kwargs** (keyword arguments): são os argumentos nomeados passados para a função, e é identificado com 2 asteriscos **(* *)**. Por exemplo:
+```
+def funcao(*args, **kwargs):
+	print(args)
+	print(kwargs['nome'])
+	
+funcao(1, 2, 3, 4, nome='José', idade='50')
+
+>>> (1, 2, 3, 4)
+>>> José
+```
+Idealmente, deveria-se utilizar `nome = kwargs.get('nome')`, pois caso o argumento 'nome' não exista, esse último comando retorna apenas 'None' ao invés de um erro.  
+
 * Caso o parâmetro seja uma lista, não é necessário utilizar **(*)**, pois o Python já a considera com tamanho variável.  
-* Pode-se unserir um argumento opcional, definindo qual valor deve receber caso o usuário opte por não utilizá-lo:  
+* Pode-se inserir um argumento opcional, definindo qual valor deve receber caso o usuário opte por não utilizá-lo:  
 ```
 def função(a, b, c=0)
 ```
 * `global <var>`: torna o escopo da variável global.  
 * `return <var>`: retorna o resultado da operação dentro da função para o programa principal.  
+
+
+### Expressões lambda (anônimas)
+São funções simplificadas (com poucos comandos) escritas em apenas 1 linha de código, quando é necessário passar uma função por parâmetro para outra função ou método, por exemplo.  
+```
+a = lambda x, y: x * y
+print(a(2, 3))
+
+>>> 6
+```
+Uma aplicação prática seria a ordenação de uma lista com sublistas, na qual deve ser informado por qual valor a ordenação deve ser realizada:  
+```
+lista = [['A', 1], ['B', 2], ['C', 3], ['D', 4], ['E', 5]]
+lista.sort(key=lambda item: item[0])
+lista.sort(key=lambda item: item[1], reverse=True)
+```
+
 
 ### Help docstrings
 * Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  

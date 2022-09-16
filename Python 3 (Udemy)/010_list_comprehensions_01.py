@@ -1,0 +1,6 @@
+
+string = '0123456789012345678901234567890123456789012345678901234567890123456789'
+
+string = list(string)
+lista = [v for v in string]
+print(string)
