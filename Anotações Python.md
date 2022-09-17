@@ -304,11 +304,34 @@ print(nums)
 >>> [1, 3, 500, 7, 9]
 ```
 
-Pode-se aninhar laços de repetição juntamente com as condicionais:
+Pode-se aninhar laços de repetição juntamente com as condicionais, tomando-se o cuidado com a ordem desses componentes. No exmeplo abaixo, primeiramente definimos os dados que devem ser considerados (primeiro **if**), então quais dados devem ser gerados (expressões **for**) e depois quais desses valores devem de fato aparecer (segundo **if**):
+```
+matriz = [
+    (x, y)
+    if y != 2 else (x, y * 100)
+    for x in range(1, 4)
+    for y in range(1, 5)
+    if x != 3
+]
+print(matriz)
+
+>>> [(1, 1), (1, 200), (1, 3), (1, 4), (2, 1), (2, 200), (2, 3), (2, 4)]
 ```
 
+Por fim, pode-se ainda iterar sobre uma string através do índice dela:
 ```
+string = '012345678901234567890123456789'
 
+new_string = [string[index:index + 10] for index in range(0, len(string), 10)]
+print(new_string)
+
+>>> ['0123456789', '0123456789', '0123456789']
+
+newer_string = '.'.join([string[index:index + 10] for index in range(0, len(string), 10)])
+print(newer_string)
+
+>>> 0123456789.0123456789.0123456789
+```
 
 ---
 

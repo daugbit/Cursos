@@ -1,6 +1,11 @@
+"""
+Programa para simples manipulação de strings através de list comprehension
+"""
+string = '012345678901234567890123456789'
 
-string = '0123456789012345678901234567890123456789012345678901234567890123456789'
+new_string = [string[index:index + 10] for index in range(0, len(string), 10)]
+print(new_string)
+print()
 
-string = list(string)
-lista = [v for v in string]
-print(string)
+newer_string = '.'.join([string[index:index + 10] for index in range(0, len(string), 10)])
+print(newer_string)
