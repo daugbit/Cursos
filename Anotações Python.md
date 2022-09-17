@@ -335,6 +335,34 @@ print(newer_string)
 
 ---
 
+## DICTIONARY COMPREHENSION
+
+Semelhante à list comprehenison, com as mesmas funções e comandos, mas com as particularidades de um dicionário - par chave-valor.
+```
+lista = [['valor1', 1], ['valor2', 2], ['valor3', 3]]
+
+dicionario = {chave: valor for chave, valor in lista}
+print(dicionario)
+
+>>> {'valor1': 1, 'valor2': 2, 'valor3': 3}
+```
+
+É possível criar um dicionário ou um conjunto com a função **range**:
+```
+dicionario = {valor for valor in range(5)}
+print(dicionario)
+
+>>> {0, 1, 2, 3, 4}
+```
+```
+dicionario = {f'chave{valor}': valor for valor in range(5)}
+print(dicionario)
+
+>>> {'chave0': 0, 'chave1': 1, 'chave2': 2, 'chave3': 3, 'chave4': 4}
+```
+
+---
+
 ## LAÇOS DE REPETIÇÃO
 
 * `for <v> in <lista>`: passa cada item da **lista**, passa o valor da item para a **v** e executa os comandos dentro do laço  
@@ -344,7 +372,42 @@ print(newer_string)
 * `continue`: retorna imediatamente para o início do laço, realizando novamente o teste da condição.  
 
 Pode-se utilizar **else** nos laços também. O bloco contido nele será executado apenas se a condição do laço for falsa.  
-  
+ 
+---
+
+## GERADORES, ITERADORES E ITERÁVEIS
+
+* Em Python, são iteráveis as strings, listas, dicionários e tuplas - números não são;  
+* Quando utilizamos um laço **for**, ele transforma o nosso objeto em um **iterador**, para que possamos iterar sobre ele;  
+	* Podemos transformar um objeto em um iterador manualmente, através da função `iter(<objeto>)`;  
+
+Quando trabalhamos com objetos com muitas informações - como listas, por exemplo - podemos utilizar um **gerador**, o qual só retorna o valor que precisamos quando demandado, economizando consideravelmente a memória do computador. Para isso, podemos utilizar **yield** ou list comprehension:  
+```
+def generator():
+    for i in range(1000):
+        yield i
+```
+Na list comprehension, utiliza-se **()** ao invés de **[]**:
+```
+lista = (x for x in range(1000))
+print(next(lista))
+
+>>> 0
+```
+
+Podemos ver a diferença de memória utilizada entre uma lista comum e um gerador abaixo:  
+```
+import sys
+
+lista1 = [x for x in range(1000)]
+lista2 = (x for x in range(10))
+print(sys.getsizeof(lista1))
+print(sys.getsizeof(lista2))
+
+>>> 9016
+>>> 112
+```
+
 
 ---
 
@@ -450,7 +513,7 @@ lista.sort(key=lambda item: item[1], reverse=True)
 ```
 
 
-### Help docstrings
+### Help e docstrings
 * Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  
 * Para inserção de docstring em uma função, inserir o texto de ajuda entre **"""** logo após a defginição da função:  
 ```

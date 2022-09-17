@@ -1,8 +1,6 @@
-matriz = [
-    (x, y)
-    if y != 2 else (x, y * 100)
-    for x in range(1, 4)
-    for y in range(1, 5)
-    if x != 3
-]
-print(matriz)
+import sys
+
+lista1 = [x for x in range(1000)]
+lista2 = (x for x in range(10))
+print(sys.getsizeof(lista1))
+print(sys.getsizeof(lista2))
