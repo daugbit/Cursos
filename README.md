@@ -82,7 +82,7 @@ Curso realizado em 08/2022, no [Curso em Vídeo](https://www.cursoemvideo.com/) 
 `status: EM ANDAMENTO`
 `113 horas`
   
-Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-zero-ao-avancado/) e ministrado pelos Profs. [Luiz Otávio Miranda](https://github.com/luizomf) e [Tales Calogi Malaquias](https://www.udemy.com/user/tales-calogi-malaquias-2/).  
+Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-zero-ao-avancado/), e ministrado pelos Profs. [Luiz Otávio Miranda](https://github.com/luizomf) e [Tales Calogi Malaquias](https://www.udemy.com/user/tales-calogi-malaquias-2/).  
 ### Conteúdo:
 * Preparação do ambiente de desenvolvimento
 * Lógica de programação
@@ -101,3 +101,18 @@ Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-z
 * HTML5 e CSS3 (iniciante)
 * Landing Page com HTML5 e CSS3 (iniciante)
 
+---
+## Introdução à Ciência de Dados
+`status: EM ANDAMENTO`
+`12 horas`
+
+Curso iniciado em 09/2022, na [Data Science Academy](https://www.datascienceacademy.com.br/), e ministrado pelo Prof. Tiago Pereira.
+### Conteúdo:
+* O que é Ciência de Dados?
+* Ciência de Dados e Big Data
+* Ciência de Dados e Estatística
+* Machine Learning e MLOps
+* Aplicações de Ciência de Dados
+* Ciclo de Vida de Projetos de Data Science
+* Soft Skills e Carreiras em Data Science
+* Como se Tornar um Cientista de Dados?
