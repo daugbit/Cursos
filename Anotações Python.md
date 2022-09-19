@@ -57,6 +57,12 @@ else:
 
 * `json`: módulo para salvar informações geradas pelos códigos em arquivos externos (ver **manipulação de arquivos** abaixo).  
 
+* `itertools`: módulo para trabalhar com objetos iteráveis.  
+	* `count()`: utilizada para gerar índices para outros objetos, como listas. A função **count()** pode ser personalizada com os parâmetros *start* e *step*: `contador = count(start=10, step=2)`;  
+	* `combinations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, sem importar a ordem;  
+	* `permutations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem;  
+	* `product(<lista>, repeat=n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem e combinações de um mesmo elemento;  
+
 ---
 
 ## MANIPULAÇÃO DE STRINGS
@@ -408,6 +414,62 @@ print(sys.getsizeof(lista2))
 >>> 112
 ```
 
+---
+
+## ZIP e ZIP_LONGEST
+
+Para combinarmos duas listas de forma ordenada, podemos utilizar as funções **zip()** (built-in) e **zip_longest()** (necessário importar do módulo *itertools*). No exemplo abaixo, interligar as cidades e seus respectivos estados, que estão em listas distintas.  
+```
+cities = ['Lajeado', 'Chapecó', 'Londrina', 'Sorocaba', 'Duque de Caxias', 'Ouro Preto', 'Salvador']
+states = ['RS', 'SC', 'PR', 'SP', 'RJ', 'MG']
+
+uf_cities = zip(states, cities)
+for state, city in uf_cities:
+    print(f'{city}/{state}')
+
+>>>
+Lajeado/RS
+Chapecó/SC
+Londrina/PR
+Sorocaba/SP
+Duque de Caxias/RJ
+Ouro Preto/MG
+```
+A função **zip()** cria um objeto iterador. Logo, se apenas mandássemos exibílo, o retorno seria algo como `<zip object at 0x7fe3a75937c0>`.  
+
+É possível verificar que a última cidade (Salvador) não foi incorporada, pois a quantidade de valores dessa lista é superior. Para resolver isso, podemos utilizar a função **zip_longest**:  
+```
+from itertools import zip_longest
+
+cities = ['Lajeado', 'Chapecó', 'Londrina', 'Sorocaba', 'Duque de Caxias', 'Ouro Preto', 'Salvador']
+states = ['RS', 'SC', 'PR', 'SP', 'RJ', 'MG']
+
+uf_cities = zip_longest(states, cities, fillvalue='Estado')
+print(list(uf_cities))
+
+>>> [('RS', 'Lajeado'), ('SC', 'Chapecó'), ('PR', 'Londrina'), ('SP', 'Sorocaba'), ('RJ', 'Duque de Caxias'), ('MG', 'Ouro Preto'), ('Estado', 'Salvador')]
+```
+
+Podemos utilizar a função **count()** (também do módulo *itertools*) para criar um índice para essa lista composta. Deve-se cuidar para, nesse caso, utilizar apenas **zip**, pois a função **count()**, sendo um iterador, acarretará em um loop infinito no **zip_ongest**:  
+```
+from itertools import count
+
+cities = ['Lajeado', 'Chapecó', 'Londrina', 'Sorocaba', 'Duque de Caxias', 'Ouro Preto']
+states = ['RS', 'SC', 'PR', 'SP', 'RJ', 'MG']
+
+index = count()
+uf_cities = zip(index, states, cities)
+for index, state, city in uf_cities:
+    print(f'{index}: {city}/{state}')
+
+>>>
+0: Lajeado/RS
+1: Chapecó/SC
+2: Londrina/PR
+3: Sorocaba/SP
+4: Duque de Caxias/RJ
+5: Ouro Preto/MG
+```
 
 ---
 

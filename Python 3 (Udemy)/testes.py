@@ -1,6 +1,3 @@
-import sys
+from itertools import count
 
-lista1 = [x for x in range(1000)]
-lista2 = (x for x in range(10))
-print(sys.getsizeof(lista1))
-print(sys.getsizeof(lista2))
+contador = count(start=1, step=2)
