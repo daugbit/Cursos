@@ -62,6 +62,8 @@ else:
 	* `combinations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, sem importar a ordem;  
 	* `permutations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem;  
 	* `product(<lista>, repeat=n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem e combinações de um mesmo elemento;  
+	* `<objeto> = groupby(<lista>, ordenação)`: agrupa os valores de uma lista a partir de uma ordenação especificada - a qual pode ser especificada a partir de uma expressão *lambda*;  
+	* `l1, l2, l3 = tee(l0)`: faz cópia do iterador **l0** para outras variáveis, fazendo com que os valores contidos nele possam ser iterados mais de uma vez;  
 
 ---
 
