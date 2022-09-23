@@ -211,6 +211,8 @@ Exemplo de laço com dicionário:
 * `<dicionário>.setdefault('key', 'value')`: determina um valor padrão para a chave 'key', caso um valor não seja informado.  
 * `<dicionário1>.update(<dicionário2>)`: concatena o dicionário 2 no dicionário 1 (o operador **+** não funciona para dicionários).  
 
+A junção de 2 dicionários pode ser feita através da expressão `<dicionário3> = {**<dicionário1>, **<dicionário2>}`
+
 ---
 
 ## SETS (CONJUNTOS)
@@ -574,6 +576,26 @@ Uma aplicação prática seria a ordenação de uma lista com sublistas, na qual
 lista = [['A', 1], ['B', 2], ['C', 3], ['D', 4], ['E', 5]]
 lista.sort(key=lambda item: item[0])
 lista.sort(key=lambda item: item[1], reverse=True)
+```
+
+### Função map
+Retorna um iterador que aplica a expressão (lambda) ou função definida para cada item do objeto iterável.  
+```
+var = map(<expressão/função>, objeto)
+```
+
+### Função filter
+Semelhante à função map(), porém retornando **True** ou **False**. Logo, a nova variável será compostas apenas com os valores do objeto original que cumprirem com a condicional expressa.  
+```
+var = filter(<expressão/função>, objeto)
+```
+
+### Função reduce
+Funciona como um acumulador, devendo ser estruturado da forma abaixo (o módulo *functools* precisa ser importado):
+```
+from functools import reduce
+
+var = reduce(lambda <acumulador>, <valor>: <valor> + <acumulador>, <lista>, <valor_inicial_acumulador>)
 ```
 
 
