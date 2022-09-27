@@ -729,17 +729,17 @@ with open('/home/douglas/documents/sub_directory/arquivo.txt') as file_object:
 
 O JSON é um módulo para salvar informações geradas pelos códigos em arquivos externos (.json), que podem ser posteriormente recuperadas e lidas pelo software.  
 
-* Para gravação, utiliza-se `json.dump(valor, arquivo)`:
+* Para gravação, utiliza-se `json.dumps(valor, arquivo)`:
 ```
 lista = [1, 2, 3]
 with open('arquivo.json') as file_object:
-    json.dump(lista, file_object)
+    json.dumps(lista, file_object)
 ```
 
 * Para leitura, utiliza-se `json.load(arquivo)`:
 ```
 with open('arquivo.json') as file_object:
-    json.load(file_object)
+    json.loads(file_object)
     print(lista)
 
 ```
