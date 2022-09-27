@@ -639,6 +639,39 @@ except Exception as <var>:
 	print(f'O erro encontrado foi {<var>.__cause__}') # pode ser também {<var>.__class__}
 ```
 
+Para armazenar a exceção, a fim de utilizá-la posteriormente (para um log, por exemplo), utiliza-se o comando **raise**:
+```
+def divisao(n1, n2):
+    try:
+        return n1 / n2
+    except ZeroDivisionError:
+        raise
+
+
+try:
+    print(divisao(2, 0))
+except ZeroDivisionError as error:
+    print(error)
+
+>>> division by zero
+```
+ou:
+```
+def divisao(n1, n2):
+    if n2 == 0:
+        raise ZeroDivisionError('o divisor não pode ser zero.')
+    return n1 / n2
+
+
+try:
+    print(divisao(2, 0))
+except ZeroDivisionError as error:
+    print(f'Log: {error}')
+    
+>>> Log: o divisor não pode ser zero. 
+```
+
+
 ### Placeholders
 
 * `pass` ou `...`: placeholders utilizados em partes do código que ainda estão incompletas, fazendo com que o interpretador passe por esse ponto ignorando eventuais erros. Idelamente deve ser incluído um comentário especificando o que será feito nessa parte do código.

@@ -1,5 +1,10 @@
-d1 = {'v1': 1, 'v2': 2, 'v3': 3}
-d2 = {'v4': 4, 'v5': 5}
+def divisao(n1, n2):
+    if n2 == 0:
+        raise ZeroDivisionError('o divisor não pode ser zero.')
+    return n1 / n2
 
-d3 = {**d1, **d2}
-print(d3)
+
+try:
+    print(divisao(2, 0))
+except ZeroDivisionError as error:
+    print(f'Log: {error}')
