@@ -1,3 +1,5 @@
+import random
+
 aux = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
 def format(cnpj):
@@ -45,3 +47,29 @@ def calcdigittwo(cnpj):
         dig = 0
     cnpj = cnpj + str(dig)
     return cnpj
+
+
+def generator():
+    """
+    Função que gera, de forma aleatória, a raiz de um CNPJ, bem como adiciona '0001' ao final.
+    return: número de CNPJ gerado, sem os dígitos verificadores.
+    """
+    cnpj = str(random.randint(00000000, 99999999))
+    if len(cnpj) < 8:
+        dif = 8 - len(cnpj)
+        cnpj = '0' * dif + cnpj
+    cnpj = cnpj + '0001'
+    return cnpj
+
+
+def branch(root, n_branch):
+    """"
+    Função que cria o sequencial da filial no CNPJ (/0005, /0128, etc.)
+    return: número de CNPJ com o número da filial.
+    """
+    if len(n_branch) < 4:
+        dif = 4 - len(n_branch)
+        n_branch = '0' * dif + n_branch
+    cnpj = root + n_branch
+    return cnpj
+
