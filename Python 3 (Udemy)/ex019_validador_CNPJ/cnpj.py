@@ -7,7 +7,7 @@ def format(cnpj):
     return: número do CNPJ formatado como 'xxxxxxxxxxxxxx'
     """
     cnpj = cnpj.replace('.', '').replace('/', '').replace('-', '')
-    if cnpj == cnpj[0] * 14:
+    if cnpj == cnpj[0] * 14 or len(cnpj) != 14 or not cnpj.isdigit():
         return False
     else:
         return cnpj
