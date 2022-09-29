@@ -1,7 +1,6 @@
 """
-Programa que verifique se um CNPJ informado pelo usuário é matematicamente válido ou não
+Programa que verifique se um CNPJ informado pelo usuário é matematicamente válido ou não.
 """
-
 import cnpj
 
 try:
@@ -23,5 +22,5 @@ try:
         print('\033[1:30:42mCNPJ VÁLIDO!\033[m')
     else:
         print('\033[1:30:41mCNPJ INVÁLIDO!\033[m')
-except ValueError:
+except (ValueError, IndexError):
     print('Formato de CPJ inválido!')

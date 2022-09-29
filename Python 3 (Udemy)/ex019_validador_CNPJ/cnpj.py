@@ -1,10 +1,19 @@
 def format(cnpj):
+    """
+    Função que formata o CNPJ informado pelo usuário, removendo eventuais pontuações
+    param. cnpj: número do CNPJ digitado pelo usuário
+    return: número do CNPJ formatado como 'xxxxxxxxxxxxxx'
+    """
     cnpj = cnpj.replace('.', '').replace('/', '').replace('-', '')
     return cnpj
 
 
 def sequenceone(cnpj):
-    # Cria a sequência auxiliar que será utilizada para cálculo do primeiro dígito
+    """
+    Função que cria a sequência auxiliar que será utilizada para cálculo do primeiro dígito
+    param. cnpj: número do CNPJ no formato de lista de dígitos, sem os dígitos verificadores
+    return: lista auxiliar para o cálculo
+    """
     aux = []
     num = 5
     for i in cnpj:
@@ -18,7 +27,12 @@ def sequenceone(cnpj):
 
 
 def calcdigitone(raw, aux):
-    # Calcula o primeiro verificador e insere na lista da sequência
+    """
+    Função que calcula o primeiro verificador e insere na lista da sequência
+    param. raw: lista de dígitos (sem os dígitos verificadores) do CNPJ informado pelo usuário
+    param. aux: lista auxiliar
+    return: lista de dígitos, agora com o primeiro dígito verificador, do CNPJ informado pelo usuário
+    """
     num = 0
     for i in range(12):
         calc = int(raw[i]) * int(aux[i])
@@ -31,7 +45,11 @@ def calcdigitone(raw, aux):
 
 
 def sequencetwo(cnpj):
-    # Cria a sequência auxiliar que será utilizada para cálculo do segundo dígito
+    """
+    Função que cria a sequência auxiliar que será utilizada para cálculo do segundo dígito
+    param. cnpj: número do CNPJ no formato de lista de dígitos, apens com o primeiro dígito verificador
+    return: segundo lista auxiliar para o cálculo
+    """
     aux = []
     num = 6
     for i in cnpj:
@@ -45,7 +63,12 @@ def sequencetwo(cnpj):
 
 
 def calcdigittwo(raw, aux):
-    # Calcula o segundo verificador e insere na lista da sequência
+    """
+    Função que calcula o segundo verificador e insere na lista da sequência
+    param. raw: lista de dígitos (apenas com o primeiro dígito verificador calculado) do CNPJ informado pelo usuário
+    param. aux: segunda lista auxiliar
+    return: lista de dígitos, agora com os dois dígitos verificadores calculados, do CNPJ informado pelo usuário
+    """
     num = 0
     for i in range(13):
         calc = int(raw[i]) * int(aux[i])
@@ -58,6 +81,10 @@ def calcdigittwo(raw, aux):
 
 
 def reformat(cnpj):
-    # Faz join dos dígitos da lista, formatando o CNPJ completo (apenas números)
+    """
+    Função que faz join dos dígitos da lista, formatando o CNPJ completo (apenas números)
+    param. cnpj: lista de dígitos, com os dois dígitos verificadores calculados, do CNPJ informado pelo usuário
+    return: número do CNPJ no formato 'xxxxxxxxxxxxxx'
+    """
     cnpj = ''.join(cnpj)
     return cnpj
