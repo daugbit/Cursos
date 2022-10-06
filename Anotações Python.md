@@ -752,9 +752,9 @@ with open('arquivo.json') as file_object:
 * Para criação de uma classe, usar a seguinte estrutura:  
 ```
 class Classe():
-	def __init__(self, <var1>, <var2>,...)
-		self.var1 = var1
-		self.var2 = var2
+	def __init__(self, <atributo1>, <atributo2>,...)
+		self.atributo1 = atributo1
+		self.atributo2 = atributo2
 		...
 	
 	def método(self):
@@ -799,6 +799,87 @@ class ClasseFilha(ClassePai):
 	<comandos>
 ```
 * Podemos sobreescrever um atributo da classe-pai nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o parâmetro do atributo inserido nela.  
+
+* Se há um atributo da classe, todas as instâncias receberão o valor desse atributo. Quando se atribui um valor para um atributo de mesmo nome para uma das instâncias da classe, apenas essa instância terá esse valor. Porém, não é o atributo da classe que é alterado, mas sim é criado um novo atributo para a instância em particular.
+
+
+### Métodos de classe
+
+Um **método de classe** é aquele que se aplica à classe em si, e não à instância e deve ser precedido do decorador **@classmethod**. No lugar de *self*, é identificado por *cls*:  
+```
+class MyClass:
+	@classmethod
+	def function(cls, <var>, <var>)
+		<comandos>
+```
+
+### Métodos estáticos
+
+Já um **método estático** é como se fosse uma função normal, não relacionada à classe, mas que é definida dentro da classe por questão de organização. Ele é precedido pelo decorador **@staticmethod** e não tem acesso aos parâmetros da classe e das instâncias, logo, não recebe *self* e nem *cls*:  
+```
+class MyClass:
+	@staticmethod
+	def function(<var>, <var>)
+		<comandos>
+```
+
+### Getter e setters
+
+Os *getters* e os *setters* servem como manipuladores dos atributos das instâncias de uma classe, que podem verificar se um dados encontra-se da forma desejada e, não estando, o manipulam da forma desejada. Isso tudo através de um código em separado, fazendo com que a estrutura principal da classe não fique poluída com tais comandos.  
+
+O **getter** é o componente que irá fazer a "captura" da variável de dentro do método, fazendo com que a verificação seja executada antes da atribuição de valor a ela.  
+O **setter** é aquele que realizará as operações de verificação e manipulação do valor, jogando-o por fim à variável.  
+```
+class People:
+    current_year = datetime.today().year
+
+    def __init__(self, name, age, function, hiring_year):
+        self.name = name
+        self.age = age
+        self.function = function
+        self.employed_time = self.employed_time(hiring_year)
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if isinstance(value, str):
+            value = int(value)
+        self._age = value
+
+    @classmethod
+    def employed_time(cls, hiring_year):
+        employed_time = cls.current_year - hiring_year
+        return employed_time
+
+
+employee1 = People('Mark', '45', 'Manager', 2009)
+employee2 = People('John', 23, "Seller", 2020)
+
+print(employee1.__dict__)
+print(employee2.__dict__)
+
+
+>>> {'name': 'Mark', '_age': 45, 'function': 'Manager', 'employed_time': 13}
+>>> {'name': 'John', '_age': 23, 'function': 'Seller', 'employed_time': 2}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
