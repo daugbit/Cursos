@@ -21,18 +21,33 @@ Class Conta:
 
 
 	def deposit(value):
+		if self.status == False:
+			print('Conta desativada')
+			return None
+		
 		self.balance += value
 	
 
 	def withdraw(value):
+		if self.status == False:
+			print('Conta desativada')
+			return None
+		
 		if value > self.balance:
 			print('O valor informado é maior que o saldo disponível')
 		else:
 			self.balance -= value
 
 
-	def pay_fee(fee):
-		self.balance -= fee
+	def pay_fee():
+		if self.status == False:
+			print('Conta desativada')
+			return None
+		
+		if self.type == 'corrente':
+			self.balance -= 20
+		elif self.type == 'poupança':
+			self.balance -= 10
 
 
 
