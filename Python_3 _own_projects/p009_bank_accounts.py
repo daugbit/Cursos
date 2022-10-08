@@ -55,24 +55,30 @@ while True:
 	print('[1] Consultar conta')
 	print('[2] Abrir nova conta')
 	print('[3] Encerrar conta')
-	print('[4] Depósitar')
+	print('[4] Depositar')
 	print('[5] Sacar')
-	print('[6] SAIR')
+	print('[6] Debitar taxa de conta')
+	print('[7] SAIR')
 	print('=-' * 30)
 	opt = input('Digite uma das opções: ')
 
 	if opt == '1':
-		print()
-
-
-client1 = Conta('001', 'corrente', 'Douglas')
-
-client1.open_account()
-
-client1.deposit(100)
-
-client1.withdraw(130)
-
-client1.pay_fee()
-
-client1.close_account()
+		pass
+	elif opt == '2':
+		client1 = Conta('001', 'corrente', 'Douglas')
+		client1.open_account()
+	elif opt == '3':
+		client1.close_account()
+	elif opt == '4':
+		client1.deposit(100)
+	elif opt == '5':
+		acc = input('Digite o número da conta: ')
+		client1.withdraw(130)
+	elif opt == '6':
+		client1.pay_fee()
+	elif opt == '7':
+		print('ATÉ LOGO!')
+		break
+	else:
+		print('\033[1:31mOPÇÃO INVÁLIDA!033[m')
+		continue
