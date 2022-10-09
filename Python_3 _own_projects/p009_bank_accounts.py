@@ -1,17 +1,18 @@
+import json
+
 class Conta:
-	def __init__(self, a_number, a_type, a_owner):
-		self.number = a_number
-		self.type = a_type
-		self.owner = a_owner
-		self.a_status = None
-		self.a_type = None
-		self.a_balance = None
+	def __init__(self, a_number, a_owner, a_type=None, a_status=None, a_balance=None):
+		self.a_number = a_number
+		self.a_owner = a_owner
+		self.a_type = a_type
+		self.a_status = a_status
+		self.a_balance = a_balance
 
 	def open_account(self):
 		self.a_status = True
-		if self.type == 'corrente':
+		if self.a_type == 'corrente':
 			self.a_balance = 50
-		elif self.type == 'poupança':
+		elif self.a_type == 'poupança':
 			self.a_balance = 150
 
 	def close_account(self):
@@ -42,11 +43,22 @@ class Conta:
 			print('Conta desativada')
 			return None
 		
-		if self.type == 'corrente':
+		if self.a_type == 'corrente':
 			self.a_balance -= 20
-		elif self.type == 'poupança':
+		elif self.a_type == 'poupança':
 			self.a_balance -= 10
 
+
+file_object = 'p009_bank_accounts.json'
+
+with open(file_object, 'r') as file:
+	accounts = file.read()
+	accounts = json.loads(accounts)
+
+	count = 0
+	for account in accounts.values():
+		client = 'client' + str(count)
+		client = Conta(account['a_number'], account['a_owner'], account['a_type'], account['a_status'], account['a_balance'])
 
 while True:
 	print('=-' * 30)

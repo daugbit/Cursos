@@ -1,0 +1,9 @@
+[
+ {
+  "a_number": 0,
+  "a_owner": "Fulano",
+  "a_type": "corrente",
+  "a_status": false,
+  "a_balance": 0
+ }
+]
