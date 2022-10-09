@@ -2,6 +2,13 @@
  {
   "a_number": 0,
   "a_owner": "Fulano",
+  "a_type": "pupan\u00e7a",
+  "a_status": false,
+  "a_balance": 0
+ },
+ {
+  "a_number": 1,
+  "a_owner": "Ciclano",
   "a_type": "corrente",
   "a_status": false,
   "a_balance": 0

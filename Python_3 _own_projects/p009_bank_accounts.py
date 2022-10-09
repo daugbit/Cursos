@@ -1,5 +1,6 @@
 import json
 
+
 class Conta:
 	def __init__(self, a_number, a_owner, a_type=None, a_status=None, a_balance=None):
 		self.a_number = a_number
@@ -56,9 +57,13 @@ with open(file_object, 'r') as file:
 	accounts = json.loads(accounts)
 
 	count = 0
-	for account in accounts.values():
+
+	for account in accounts:
 		client = 'client' + str(count)
+		print(client)
 		client = Conta(account['a_number'], account['a_owner'], account['a_type'], account['a_status'], account['a_balance'])
+		count += 1
+		print(client.a_number)
 
 while True:
 	print('=-' * 30)
