@@ -826,6 +826,7 @@ class MyClass:
 ### Getter e setters
 
 Os *getters* e os *setters* servem como manipuladores dos atributos das instâncias de uma classe, que podem verificar se um dados encontra-se da forma desejada e, não estando, o manipulam da forma desejada. Isso tudo através de um código em separado, fazendo com que a estrutura principal da classe não fique poluída com tais comandos.  
+Outra aplicação para esses métodos especiais é quando se encapsula os atributos de uma classe, ou seja, ao se definir o acesso como *privado*. Neste caso, só é necessário o método **getter**.  
 
 O **getter** é o componente que irá fazer a "captura" da variável de dentro do método, fazendo com que a verificação seja executada antes da atribuição de valor a ela.  
 O **setter** é aquele que realizará as operações de verificação e manipulação do valor, jogando-o por fim à variável.  
@@ -867,7 +868,64 @@ print(employee2.__dict__)
 ```
 
 
+### Associação de classes
 
+É quando se configura duas ou mais classes a fim de que essas trabalhem em conjunto. Na *associação*, porém, as classes continuam podendo trabalhar individualmente quando necessário.  
+```
+class Car:
+    def __init__(self, maker, model):
+        self.__maker = maker
+        self.__model = model
+        self.__fuel = None
+
+    @property
+    def maker(self):
+        return self.__maker
+
+    @property
+    def model(self):
+        return self.model
+
+    @property
+    def fuel(self):
+        return self.__fuel
+
+    @fuel.setter
+    def fuel(self, fuel):
+        self.__fuel = fuel
+
+
+    def descricao(self):
+        print(f'O veículo {self.__maker} {self.__model} utiliza o combustível {self.fuel.fuel_type}.')
+
+
+class Fuel:
+    def __init__(self, fuel_type):
+        self.__fuel_type = fuel_type
+
+    @property
+    def fuel_type(self):
+        return self.__fuel_type
+        
+
+car1 = Car('Tesla', 'Model S')
+car2 = Car('Porshe', 'Cayenne')
+
+fuel1 = Fuel('gasolina')
+fuel2 = Fuel('eletricidade')
+
+wheel1 = Wheel('18"')
+wheel2 = Wheel('15"')
+
+car1.fuel = fuel2
+car2.fuel = fuel1
+
+car1.descricao()
+car2.descricao()
+
+>>> O veículo Tesla Model S utiliza o combustível eletricidade.
+>>> O veículo Porshe Cayenne utiliza o combustível gasolina.
+```
 
 
 
