@@ -927,8 +927,60 @@ car2.descricao()
 >>> O veículo Porshe Cayenne utiliza o combustível gasolina.
 ```
 
+### Agregação de classes
+
+É quando utilizamos uma instância de uma classe como atributo de outra classe. Logo, a classe necessita que esta segunda classe exista para que o seu atributo funcione adequadamente.  
+No exemplo abaixo, utilizamos uma instância do CarrinhoCompras para adicionar um produto (instância da classe Produto). Assim, a classe CarrinhoCompras precisa da classe Produto para conseguir incluir itens no atributo *self.carrinho*.  
+
+```
+class CarrinhoCompras:
+    def __init__(self):
+        self.carrinho = []
+
+    def add_produto(self, produto):
+        self.carrinho.append(produto)
 
 
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+        
+        
+carrinho = CarrinhoCompras()
+
+p1 = Produto('Relógio', 199.5)
+p2 = Produto('Camiseta', 120.99)
+
+carrinho.add_produto(p1)
+carrinho.add_produto(p2)
+```
+
+
+### Composição de classes
+
+Na composição, a conexão entre duas classes é feita instanciando a segunda classe a partir de um método da primeira classe. Assim, caso a instância da primeira classe seja excluída, a instância da segunda classe criada a partir dela também será deletada.  
+
+```
+class Cliente:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.enderecos = []
+
+    def include_address(self, city, state):
+        self.enderecos.append(Endereco(city, state))
+
+
+class Endereco:
+    def __init__(self, city, state):
+        self.city = city
+        self.state = state
+
+
+c1 = Cliente('Marcos', 23)
+c1.include_address('Lajeado', 'RS')
+```
 
 
 
