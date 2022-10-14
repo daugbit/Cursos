@@ -787,21 +787,6 @@ def update_parameter(self, value)
 	
 <objeto>.update_parameter(valor)
 ```
-Pode-se criar uma classe-filha com os atributos da classe-pai mais os próprios, utilizando a estrutura abaixo e método **super()**:
-```
-class ClassePai():
-	def __init__(self, 'atributo1', 'atributo2',...)
-	...
-	
-class ClasseFilha(ClassePai):
-	def __init__(self, 'atributo1', 'atributo2',...)
-	super().__init__('atributo1', 'atributo2', 'atributo3'...)
-	<comandos>
-```
-* Podemos sobreescrever um atributo da classe-pai nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o parâmetro do atributo inserido nela.  
-
-* Se há um atributo da classe, todas as instâncias receberão o valor desse atributo. Quando se atribui um valor para um atributo de mesmo nome para uma das instâncias da classe, apenas essa instância terá esse valor. Porém, não é o atributo da classe que é alterado, mas sim é criado um novo atributo para a instância em particular.
-
 
 ### Métodos de classe
 
@@ -866,6 +851,8 @@ print(employee2.__dict__)
 >>> {'name': 'Mark', '_age': 45, 'function': 'Manager', 'employed_time': 13}
 >>> {'name': 'John', '_age': 23, 'function': 'Seller', 'employed_time': 2}
 ```
+
+* Se há um atributo da classe, todas as instâncias receberão o valor desse atributo. Quando se atribui um valor para um atributo de mesmo nome para uma das instâncias da classe, apenas essa instância terá esse valor. Porém, não é o atributo da classe que é alterado, mas sim é criado um novo atributo para a instância em particular.  
 
 
 ### Associação de classes
@@ -983,9 +970,78 @@ c1.include_address('Lajeado', 'RS')
 ```
 
 
+### Herança de classes
+
+Na herança simples podemos montar uma 'árvore' de classes, de forma que haja uma hierarquia entre elas. Os atributos e métodos da classe-mãe são automaticamente aplicados à(s) classe(s)-filha(s), sendo que estas podem ter atributos e métodos particulares.
+
+```
+class MembroEscola:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
 
 
+class Aluno(MembroEscola):
+    def estudar(self):
+        print(f'O aluno {self.nome} está estudando.')
 
+
+class Professor(MembroEscola):
+    def dar_aula(self):
+        print(f'O professor {self.nome} está dando aula.')
+
+
+class Diretor(MembroEscola):
+    def dar_bronca(self):
+        print(f'O diretor {self.nome} está dando bronca.')
+        
+a1 = Aluno('Caroline', 23)
+p1 = Professor('Marlon', 45)
+d1 = Diretor('Jorge', 62)
+
+a1.estudar()
+p1.dar_aula()
+d1.dar_bronca()
+```
+
+* Podemos sobreescrever um atributo da classe-mãe nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o valor do atributo inserido nela.  
+* Quando sobreescrevemos um método (ou em outros casos), podemos ainda chamar o método **super()**, que irá chamar o método especificado da classe-mãe. Caso a classe da qual se queira sobreescrever o método seja de níveis superiores à mãe (ancestral), deve-se utilizar o nome dela no lugar de *super()*.  
+* Pode-se ainda criar um novo método construtor **__init__** para a subclasse, reaproveitando-se os atributos da super-classe e criando novos.  
+
+```
+class MembroEscola:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def falar(self):
+        print(f'Membro {self.nome} está falando.')
+
+
+class Aluno(MembroEscola):
+    def falar(self):
+        print(f'Aluno {self.nome} está falando.')
+
+
+class AlunoPrimario(Aluno):
+    def __init__(self, nome, sobrenome, idade):
+        MembroEscola.__init__(self, nome, idade)
+        self.sobrenome = sobrenome
+
+    def falar(self):
+        MembroEscola.falar(self)
+        Aluno.falar(self)
+        print(f'Agora o aluno primário {self.nome} está falando.')
+        
+
+ap1 = AlunoPrimario('Cadu', 'Freitas', 5)
+ap1.falar()
+
+>>>
+Membro Cadu está falando.
+Aluno Cadu está falando.
+Agora o aluno primário Cadu está falando.
+```
 
 
 
