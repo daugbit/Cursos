@@ -1043,6 +1043,13 @@ Aluno Cadu está falando.
 Agora o aluno primário Cadu está falando.
 ```
 
+Uma classe pode ter heranças múltiplas, ou seja, herdar mais de uma classe. A ancestralidade é definida na definição da classe:  
+
+```
+class Smartphone(Electronic, LogCenter):
+```
+
+No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, o Python executará o método da classe que estiver definida primeiro dentro dos **()**.  
 
 
 
