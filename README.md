@@ -106,7 +106,7 @@ Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-z
 `status: EM ANDAMENTO`
 `4 horas`
 
-Curso iniciado em 09/2022, na [Didática Tech](https://didatica.tech/).
+Curso iniciado em 10/2022, na [Didática Tech](https://didatica.tech/).
 ### Conteúdo:
 * Instalação do R e RStudio
 * Variáveis e funções
