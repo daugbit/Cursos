@@ -102,17 +102,20 @@ Curso iniciado em 09/2022, na [Udemy](https://www.udemy.com/course/python-3-do-z
 * Landing Page com HTML5 e CSS3 (iniciante)
 
 ---
-## Introdução à Ciência de Dados
+## Linguagem R para iniciantes
 `status: EM ANDAMENTO`
-`12 horas`
+`4 horas`
 
-Curso iniciado em 09/2022, na [Data Science Academy](https://www.datascienceacademy.com.br/), e ministrado pelo Prof. Tiago Pereira.
+Curso iniciado em 09/2022, na [Didática Tech](https://didatica.tech/).
 ### Conteúdo:
-* O que é Ciência de Dados?
-* Ciência de Dados e Big Data
-* Ciência de Dados e Estatística
-* Machine Learning e MLOps
-* Aplicações de Ciência de Dados
-* Ciclo de Vida de Projetos de Data Science
-* Soft Skills e Carreiras em Data Science
-* Como se Tornar um Cientista de Dados?
+* Instalação do R e RStudio
+* Variáveis e funções
+* Operadores
+* Dados numéricos e caracteres
+* Fatores
+* Dados lógicos
+* Vetores, listas e matrizes
+* Data frames
+* Filtros
+* Condicionais
+* Funções
