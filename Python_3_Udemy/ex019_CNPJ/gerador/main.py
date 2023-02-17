@@ -25,5 +25,5 @@ cnpj1 = cnpj.calcdigitone(cnpj1)
 cnpj2 = cnpj.calcdigittwo(cnpj1)
 
 print('=-' * 30)
-print(f'CNPJ gerado: \033[1:30:47m{cnpj2}\033[m')
+print(f'CNPJ gerado:      \033[1:30:47m{cnpj2}\033[m')
 print(f'CNPJ com máscara: \033[1:30:47m{cnpj2[0:2]}.{cnpj2[2:5]}.{cnpj2[5:8]}/{cnpj2[8:12]}-{cnpj2[12:]}\033[m')

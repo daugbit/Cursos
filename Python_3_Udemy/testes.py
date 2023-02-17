@@ -1,10 +1,15 @@
-def divisao(n1, n2):
-    if n2 == 0:
-        raise ZeroDivisionError('o divisor não pode ser zero.')
-    return n1 / n2
+name = input('Digite seu nome: ')
+age = input('Digite sua idade: ')
 
-
-try:
-    print(divisao(2, 0))
-except ZeroDivisionError as error:
-    print(f'Log: {error}')
+if name and age:
+    print(f'Seu nome é {name}')
+    print(f'Seu nome invertido é {name[-1::-1]}')
+    if ' ' in name:
+        print('Seu nome contém espaço(s)')
+    else:
+        print('Seu nome não contém espaços')
+    print(f'Seu nome contém {len(name)} letras')
+    print(f'A primeira letra do seu nome é {name[0]}')
+    print(f'A última letra do seu nome é {name[-1]}')
+else:
+    print('Desculpe, você deixou campos vazios')
