@@ -16,4 +16,3 @@ letters.sort(key=lambda j: j[1], reverse=True)
 
 for k in letters:
     print(f'A letra "{k[0]}" apareceu {k[1]} veze(s)')
-
