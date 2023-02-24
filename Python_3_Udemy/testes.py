@@ -1,19 +1,24 @@
-phrase = input('Digite uma frase: ')
-letters = []
-verif_letters = []
-i = 0
+import os
 
-while i < len(phrase):
-    letter = []
-    if phrase[i] not in verif_letters and phrase[i] != ' ':
-        verif_letters.append(phrase[i])
-        letter.append(phrase[i])
-        letter.append(phrase.count(phrase[i]))
-        letters.append(letter)
-    i += 1
+lista = []
 
-letters.sort(key=lambda j: j[1], reverse=True)
-
-for k in letters:
-    print(f'A letra "{k[0]}" apareceu {k[1]} veze(s)')
-
+while True:
+    os.system('cls')
+    print('LISTA DE COMPRAS')
+    option = input('[l]istar   [i]nserir   [a]pagar   [s]air: ')
+    if option == 'l':
+        for i, item in enumerate(lista):
+            print(i, item)
+    elif option == 'i':
+        item = input('Item:')
+        lista.append(item)
+    elif option == 'a':
+        try:
+            item = int(input('Índice: '))
+            lista.pop(item)
+        except:
+            print('Índice inexistente.')
+    elif option == 's':
+        break
+    else:
+        print('Opção inválida')

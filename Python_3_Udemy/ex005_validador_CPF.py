@@ -38,8 +38,7 @@ def is_sequence():
 
 cpf = cpf_input()
 print('=-' * 30)
-print(f'O CPF informado foi: {cpf[0]}{cpf[1]}{cpf[2]}.{cpf[3]}{cpf[4]}{cpf[5]}.'
-      f'{cpf[6]}{cpf[7]}{cpf[8]}-{cpf[9]}{cpf[10]}')        # Exibe o CPF informado com a máscara
+print(f'O CPF informado foi: {cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}')     # Exibe o CPF informado com a máscara
 print('=-' * 30)
 
 for i, v in enumerate(range(10, 1, -1)):    # Cria uma lista com os resultados do primeiro bloco

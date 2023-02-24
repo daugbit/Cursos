@@ -29,5 +29,5 @@ if len(cpf) < 11:                           # Add zeros no início do CPF, caso 
     cpf = ('0' * digitszero + str(cpf))
 
 print('CPF gerado: ', end='')
-print(f'{cpf[0]}{cpf[1]}{cpf[2]}.{cpf[3]}{cpf[4]}{cpf[5]}.'         # Exibe o CPF informado com a máscara
-      f'{cpf[6]}{cpf[7]}{cpf[8]}-{cpf[9]}{cpf[10]}')
+print(f'{cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}')         # Exibe o CPF informado com a máscara
+

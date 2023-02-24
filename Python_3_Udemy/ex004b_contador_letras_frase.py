@@ -1,4 +1,4 @@
-phrase = input('Digite uma frase: ')
+phrase = input('Digite uma frase: ').upper()
 letters = []
 verif_letters = []
 i = 0
@@ -15,4 +15,4 @@ while i < len(phrase):
 letters.sort(key=lambda j: j[1], reverse=True)
 
 for k in letters:
-    print(f'A letra "{k[0]}" apareceu {k[1]} veze(s)')
+    print(f'A letra "{k[0]}" apareceu {k[1]} vez(es)')

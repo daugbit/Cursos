@@ -4,8 +4,9 @@ deve ser antecipadamente declarada na variável 'word'.
 """
 
 from time import sleep
+import os
 
-word = 'FARINHA'
+word = 'PERFUME'
 guesses = 6
 right_letters = []
 wrong_letters = []
@@ -41,13 +42,13 @@ def guess():
     try:
         letter = str(input('Tente uma letra: ')).strip().upper()[0]
     except (ValueError, IndexError):
-        print(color['alert'], 'Entrada inválida. Digite apenas uma letra.', color['white'], sep='')
+        print(color['alert'], 'Entrada inválida. Digite uma letra.', color['white'], sep='')
         sleep(1)
         return ''
     else:
-        if letter.isdigit():
-            print(color['alert'], 'Entrada inválida. Digite apenas uma letra.', color['white'], sep='')
-            return ''
+        if not letter.isalpha():
+            print(color['alert'], 'Entrada inválida. Digite uma letra.', color['white'], sep='')
+            return None
         return letter
 
 
@@ -92,16 +93,19 @@ def word_build():
 
 
 # PROGRAMA PRINCIPAL
-print('\n', ' JOGO DA FORCA '.center(40, '*'), sep='')
 
 while guesses > 0:
+    os.system("cls")
+    print('\n', ' JOGO DA FORCA '.center(40, '*'), sep='')
     printword()
     print(f'Letras erradas: {wrong_letters}')
     print(f'Tentativas restantes: {guesses}')
     letter = guess()
-    verif()
+    if letter:
+        verif()
 
     if temp_word == word:
+        os.system("cls")
         printword()
         print(color['win'], f'VITÓRIA!!!'.center(40), color['white'], sep='')
         break
