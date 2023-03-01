@@ -1,24 +1,13 @@
-import os
+def multiplicador(multiplo):
+    def multiplicacao(num):
+        return num * multiplo
+    return multiplicacao
 
-lista = []
 
-while True:
-    os.system('cls')
-    print('LISTA DE COMPRAS')
-    option = input('[l]istar   [i]nserir   [a]pagar   [s]air: ')
-    if option == 'l':
-        for i, item in enumerate(lista):
-            print(i, item)
-    elif option == 'i':
-        item = input('Item:')
-        lista.append(item)
-    elif option == 'a':
-        try:
-            item = int(input('Índice: '))
-            lista.pop(item)
-        except:
-            print('Índice inexistente.')
-    elif option == 's':
-        break
-    else:
-        print('Opção inválida')
+duplica = multiplicador(2)
+triplica = multiplicador(3)
+quadruplica = multiplicador(4)
+
+print(duplica(10))
+print(triplica(10))
+print(quadruplica(10))
