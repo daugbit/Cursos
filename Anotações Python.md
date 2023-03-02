@@ -207,11 +207,14 @@ Exemplo de laço com dicionário:
 	```
 * `<lista>.append(<dicionário>.copy())`: copiar um dicionário para dentro de uma lista.  
 * `del <dicionário>['<chave>']`: deleta a chave e o respectivo valor do dicionário.  
+* `var = <dicionario>.pop('key)`: remove o par chave-valor da "key" especificada e joga para a variável **var**
+* `var = <dicionario>.popitem()`: remove o último par chave-valor e joga para a variável **var**
 * `<dicionário>.get('key', x)`: retorna o valor da chave 'key' caso ela exista, ou x caso essa chave não exista.  
 * `<dicionário>.setdefault('key', 'value')`: determina um valor padrão para a chave 'key', caso um valor não seja informado.  
-* `<dicionário1>.update(<dicionário2>)`: concatena o dicionário 2 no dicionário 1 (o operador **+** não funciona para dicionários).  
-
-A junção de 2 dicionários pode ser feita através da expressão `<dicionário3> = {**<dicionário1>, **<dicionário2>}`
+* `<dicionário1>.update(<dicionário2>)`: concatena o dicionário 2 no dicionário 1 (o operador **+** não funciona para dicionários). Esta função também pode ser utilizada para adicionar novas chaves do dicionário e para converter tuplas/listas para pares chaves-valor e incluílos no dicionário.  
+  * A junção de 2 dicionários pode ser feita através da expressão `<dicionário3> = {**<dicionário1>, **<dicionário2>}`  
+* `copy.deppcopy<dicionario>`: o módulo **copy** faz uma cópia completa de um dicionário para um novo, uma vez que a o método **copy** copia apenas o dados imutáveis para o novo dicionário, enquanto linka dados mutáveis ao dicionário original (shallow copy).
+  * A estrutura `dic1 = dic2` fará a conexão entre ambas, logo, o que for alterada em uma refletirá na outra.    
 
 ---
 
@@ -224,6 +227,7 @@ A junção de 2 dicionários pode ser feita através da expressão `<dicionário
 * `<set>.add(value)`: adição de um valor ao conjunto.  
 * `<set>.discard(value)`: exclusão de um valor do conjunto.  
 * `<set>.update(value)`: itera sobre o valor, adicionando cada caractere como um valor separado ({'v', 'a', 'l', 'u', 'e'}).  
+* `<set>.clear()`: limpa o conjunto, deixando-o vazio
 * `s3 = s1 | s2`: a função **union (|)** é utilizada para unir dois conjuntos.  
 * `s3 = s1 & s`: a função **intersection (&)** é utilizada para criar um conjunto que contenha os elementos que estejam presentes em ambos os outros conjuntos.  
 * `s3 = s1 - s2`: a função **diference** retorna para a variável s3 o conjunto de valores que estão no conjunto da esquerda, mas não no da direita.  
