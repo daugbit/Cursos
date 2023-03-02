@@ -20,7 +20,7 @@ lista_de_listas_de_inteiros = [
 
 def verificador(lista):
     """
-    Verifica ha repetição de algum número na sublista, retornando a primeira repetição,
+    Verifica se há repetição de algum número na sublista, retornando a primeira repetição,
     ou -1 se não houver nenhuma repetição.
     """
     sublista = []
