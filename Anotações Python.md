@@ -85,7 +85,8 @@ else:
   * `<objeto>.ljust(x, '*')`: alinha o objeto à esquerda num espaçamento **x**, preenchido com o caractere '*' (pode ser ocultado caso sejam espaços).  
   * `<objeto>.rjust(x, '*')`: alinha o objeto à direita num espaçamento **x**, preenchido com o caractere '*' (pode ser ocultado caso sejam espaços).  
 * `<objeto>.startswith('str')`: retorna um valor booleano ao verificar se a string do objeto inicia com a string especificada 'str'.  
-* `<objeto>.endswith('str')`: retorna um valor booleano ao verificar se a string do objeto termina com a string especificada 'str'.  
+* `<objeto>.endswith('str')`: retorna um valor booleano ao verificar se a string do objeto termina com a string especificada 'str'.
+* `isinstance(<objeto>, <tipo_primitivo>)`: retorna um valor booleano para o objeto e o tipo primitivo especificado. O tipo pode ser uma tupla com 2 tipos.    
 * `len(<objeto>)`: mostra o comprimento de uma string
 * `<objeto>.count(<trecho>)`: conta quantos trechos informados há dentro do objeto
 * `<objeto>.lower()`: transforma a string toda em minúsculo
