@@ -1,38 +1,41 @@
-# Exercício - sistema de perguntas e respostas
+# copy, sorted, produtos.sort
+# Exercícios
+# Aumente os preços dos produtos a seguir em 10%
+# Gere novos_produtos por deep copy (cópia profunda)
 
+import copy
 
-perguntas = [
-    {
-        'Pergunta': 'Quanto é 2+2?',
-        'Opções': ['1', '3', '4', '5'],
-        'Resposta': '4',
-    },
-    {
-        'Pergunta': 'Quanto é 5*5?',
-        'Opções': ['25', '55', '10', '51'],
-        'Resposta': '25',
-    },
-    {
-        'Pergunta': 'Quanto é 10/2?',
-        'Opções': ['4', '5', '2', '1'],
-        'Resposta': '5',
-    },
+produtos = [
+    {'nome': 'Produto 5', 'preco': 10.00},
+    {'nome': 'Produto 1', 'preco': 22.32},
+    {'nome': 'Produto 3', 'preco': 10.11},
+    {'nome': 'Produto 2', 'preco': 105.87},
+    {'nome': 'Produto 4', 'preco': 69.90},
 ]
 
-hits = 0
+novos_produtos = [
+    {**p, 'preco': round(p['preco'] * 1.1)} for p in copy.deepcopy(produtos)
+]
 
-for question in perguntas:
-    print(question['Pergunta'])
+print(*produtos, sep='\n')
+print('\n', *novos_produtos, sep='\n')
 
-    for i, option in enumerate(question['Opções']):
-        print(f'{i}) {option}')
-    answer = input('Opção: ')
 
-    if question['Opções'][int(answer)] == question['Resposta']:
-        hits += 1
-        print('Você acertou!')
-    else:
-        print('Você errou!')
-    print('-=' * 20)
+# Ordene os produtos por nome decrescente (do maior para menor)
+# Gere produtos_ordenados_por_nome por deep copy (cópia profunda)
 
-print(f'Você acertou {hits} de 3 perguntas')
+produtos_ordenados_por_nome = copy.deepcopy(novos_produtos)
+
+produtos_ordenados_por_nome.sort(key=lambda n: n['nome'], reverse=True)
+
+print('\n', *produtos_ordenados_por_nome, sep='\n')
+
+
+# Ordene os produtos por preco crescente (do menor para maior)
+# Gere produtos_ordenados_por_preco por deep copy (cópia profunda)
+
+produtos_ordenados_por_preco = copy.deepcopy(novos_produtos)
+
+produtos_ordenados_por_preco.sort(key=lambda p: p['preco'])
+
+print('\n', *produtos_ordenados_por_preco, sep='\n')
