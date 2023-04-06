@@ -32,7 +32,7 @@ def tab(times):
     tabela.sort(key=lambda i: i[2], reverse=True)
 
 
-def summary():
+def summary(lista):
     """
     Organiza, em formato de tabela, as informações geradas pelas funções
     randomize() e tab().
@@ -42,7 +42,7 @@ def summary():
     print('=-' * 15)
     print('nº'.center(5), 'Ocorrências'.center(15), 'Taxa'.center(10))
     print('-' * 30)
-    for i in tabela:
+    for i in lista:
         print(f'{i[0]}'.center(5),
               f'{i[1]}'.center(15),
               f'{i[2]:.2f}%'.rjust(8),
@@ -52,5 +52,5 @@ def summary():
 n = int(input('Amostragem: '))
 randomize(n)
 tab(n)
-summary()
+summary(tabela)
 print(f'\n{lista.__sizeof__()} bytes.')
