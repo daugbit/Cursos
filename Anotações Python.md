@@ -565,6 +565,7 @@ Idealmente, deveria-se utilizar `nome = kwargs.get('nome')`, pois caso o argumen
 def função(a, b, c=0)
 ```
 * `global <var>`: torna o escopo da variável global.  
+* `nonglobal <var>`: quando temos uma função interna (função dentro de outra função), e há uma variável criada na "função mãe", utiliza-se **nonglobal** a fim de que o Python utilize a variável já existente.  
 * `return <var>`: retorna o resultado da operação dentro da função para o programa principal.  
 
 
