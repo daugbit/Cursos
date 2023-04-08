@@ -619,6 +619,45 @@ def função():
 ```
 
 
+## Higher order functions
+High order functions são funções que recebem uma função ou mais como argumento, retornando outra função. Isso permite a composição de funções, ou seja, ter funções pequenas que compõem outras funções maiores. Funções que são chamadas dentro de outra são chamadas callback functions, pois são “called back” (“chamadas de volta” em uma tradução livre) dentro da função onde estão compostas.  
+```
+def saudacao(msg, nome):
+    return f'{msg}, {nome}!'
+
+
+def executa(funcao, *args):
+    return funcao(*args)
+
+
+print(executa(saudacao, 'Bom dia', 'Luiz'))
+print(executa(saudacao, 'Boa noite', 'Maria'))
+```
+
+### Closures
+Uma closure ocorre quando uma função é declarada dentro do corpo de outra, e a função interior referencia variáveis locais da função exterior. Em tempo de execução, quando a função exterior é executada, então uma closure é formada, que consiste do código da função interior e referências para quaisquer variáveis no escopo da função exterior que a closure necessita.  
+Essa estrutura é útil quando queremos adiar a execução de uma função (a interna), pois a falta de algum parâmetro que será passado apenas posteriormente ocasionaria 
+```
+def criar_saudacao(saudacao):
+    def saudar(nome):
+        return f'{saudacao}, {nome}!'
+    return saudar
+
+
+falar_bom_dia = criar_saudacao('Bom dia')
+falar_boa_noite = criar_saudacao('Boa noite')
+
+for nome in ['Maria', 'Joana', 'Luiz']:
+    print(falar_bom_dia(nome))
+    print(falar_boa_noite(nome))
+```
+
+
+### DECORADORES
+Decoradores são elementos que modificam a execução de uma função, como para que seja executada uma outra função antes desta, por exemplo.  
+
+
+
 ---
 
 ## ERROS E EXCEÇÕES
