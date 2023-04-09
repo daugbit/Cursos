@@ -58,10 +58,10 @@ else:
 * `json`: módulo para salvar informações geradas pelos códigos em arquivos externos (ver **manipulação de arquivos** abaixo).  
 
 * `itertools`: módulo para trabalhar com objetos iteráveis.  
-	* `count()`: utilizada para gerar índices para outros objetos, como listas. A função **count()** pode ser personalizada com os parâmetros *start* e *step*: `contador = count(start=10, step=2)`;  
+	* `count()`: utilizada para gerar índices para outros objetos, como listas. Ao contrário da função *range()*, a *count* não tem um fim determinado. A função **count()** pode ser personalizada com os parâmetros *start* e *step*: `contador = count(start=10, step=2)`;  
 	* `combinations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, sem importar a ordem;  
 	* `permutations(<lista>, n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem;  
-	* `product(<lista>, repeat=n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem e combinações de um mesmo elemento;  
+	* `product(<lista>, repeat=n)`: utilizado para criar todas as combinações possíveis de *n* elementos de uma lista, considerando a ordem e combinações de um mesmo elemento. Também é possível separar os elementos da lista em sublistas, atentando-se para a necessidade de desempacotar a lista principal ao executar a função: `product(*lista)`;  
 	* `<objeto> = groupby(<lista>, ordenação)`: agrupa os valores de uma lista a partir de uma ordenação especificada - a qual pode ser especificada a partir de uma expressão *lambda*;  
 	* `l1, l2, l3 = tee(l0)`: faz cópia do iterador **l0** para outras variáveis, fazendo com que os valores contidos nele possam ser iterados mais de uma vez;  
 
@@ -604,7 +604,6 @@ from functools import reduce
 var = reduce(lambda <acumulador>, <valor>: <valor> + <acumulador>, <lista>, <valor_inicial_acumulador>)
 ```
 
-
 ### Help e docstrings
 * Para obtenção de ajuda com alguma função no Python, utilizar `help(<função>)`.  
 * Para inserção de docstring em uma função, inserir o texto de ajuda entre **"""** logo após a defginição da função:  
@@ -617,7 +616,6 @@ def função():
 	"""
 	<início dos comandos das funções>
 ```
-
 
 ## Higher order functions
 High order functions são funções que recebem uma função ou mais como argumento, retornando outra função. Isso permite a composição de funções, ou seja, ter funções pequenas que compõem outras funções maiores. Funções que são chamadas dentro de outra são chamadas callback functions, pois são “called back” (“chamadas de volta” em uma tradução livre) dentro da função onde estão compostas.  
@@ -652,9 +650,77 @@ for nome in ['Maria', 'Joana', 'Luiz']:
     print(falar_boa_noite(nome))
 ```
 
+### Variáveis livres e non local
+Em uma estrutura de funções dentro de outras funções, variável livre é aquela que é declarada no corpo da função externa pode ser acessada e alterada a partir de qualquer das funções internas, desde que definida como **nonlocal**:  
+```
+def concatenar(string_inicial):
+    valor_final = string_inicial
 
-### DECORADORES
+    def interna(valor_a_concatenar=''):
+        nonlocal valor_final
+        valor_final += valor_a_concatenar
+        return valor_final
+    return interna
+
+
+c = concatenar('a')
+print(c('b'))
+print(c('c'))
+```
+
+### Funções decoradoras e Decoradores
+Decorar = Adicionar / Remover/ Restringir / Alterar. Funções decoradoras são funções que decoram outras funções. Decoradores são usados para fazer o Python usar as funções decoradoras em outras funções.  
 Decoradores são elementos que modificam a execução de uma função, como para que seja executada uma outra função antes desta, por exemplo.  
+Exemplo de função decoradora:
+```
+def criar_funcao(func):
+    def interna(*args, **kwargs):
+        print('Decorando...')        
+        for arg in args:
+            e_string(arg)
+        resultado = func(*args, **kwargs)
+        return resultado
+    return interna
+
+
+def inverte_string(string):
+    return string[::-1]
+
+
+def e_string(param):
+    if not isinstance(param, str):
+        raise TypeError('param deve ser uma string')
+
+
+inverte_string_checando_parametro = criar_funcao(inverte_string)
+invertida = inverte_string_checando_parametro('douglas')
+print(invertida)
+```
+Um decorador é identificado como **@decorador** e é declarado acima da função. Utilizando-se um decorador, o corpo do código principal acima fica mais simplificada:  
+```
+def criar_funcao(func):
+    def interna(*args, **kwargs):
+        print('Decorando...')
+        for arg in args:
+            e_string(arg)
+        resultado = func(*args, **kwargs)
+        return resultado
+    return interna
+
+
+@criar_funcao
+def inverte_string(string):
+    return string[::-1]
+
+
+def e_string(param):
+    if not isinstance(param, str):
+        raise TypeError('param deve ser uma string')
+
+
+invertida = inverte_string('douglas')
+print(invertida)
+```
 
 
 
