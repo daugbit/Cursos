@@ -722,7 +722,23 @@ invertida = inverte_string('douglas')
 print(invertida)
 ```
 
+### Funções recursivas
+Funções que podem se chamar de volta. Úteis p/ dividir problemas grandes em partes menores.  
+```
+# Sequência Fibonacci
 
+def recursiva(end=0, v1=0, v2=1):
+    print(v1)
+    v1 += v2
+    v2, v1 = v1, v2
+    if v1 > end:
+        return None
+    return recursiva(end, v1, v2)
+
+recursiva(10000)
+
+```
+O Python tem um limite de segurança para recursão, tendo em vista que cada uma delas gera nova instância no *call stack*. Caso seja muito necessário utilizar acima desse limite, pode-se utilizar `sys.setrecursionlimit(<limite_desejado>)` do módulo **sys** (não recomendado, pois o excesso de instâncias gera sobrecarga na memória do computador).  
 
 ---
 
