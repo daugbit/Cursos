@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import os
 import hashlib
 import random
@@ -38,3 +39,6 @@ chave_privada = base58
 # imprimir a chave privada e o mnemônico correspondente
 print("Chave privada: ", chave_privada)
 print("Mnemônico: ", mnemonico)
+=======
+import bip39
+>>>>>>> Stashed changes

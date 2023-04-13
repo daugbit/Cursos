@@ -1,3 +1,6 @@
+import bip39
+
+
 def recursiva(end=0, __v1=0, __v2=1):
     print(__v1)
     __v1 += __v2
