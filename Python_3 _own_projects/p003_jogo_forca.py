@@ -95,7 +95,7 @@ def word_build():
 # PROGRAMA PRINCIPAL
 
 while guesses > 0:
-    os.system("cls")
+    os.system("clear")
     print('\n', ' JOGO DA FORCA '.center(40, '*'), sep='')
     printword()
     print(f'Letras erradas: {wrong_letters}')
@@ -105,7 +105,7 @@ while guesses > 0:
         verif()
 
     if temp_word == word:
-        os.system("cls")
+        os.system("clear")
         printword()
         print(color['win'], f'VITÓRIA!!!'.center(40), color['white'], sep='')
         break
