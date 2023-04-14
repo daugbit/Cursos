@@ -2,9 +2,11 @@ import json
 
 user = {}
 
-with open('arquivo.json', 'r') as file:
-    cadastro = file.read()
-    cadastro = json.loads(cadastro)
+arquivo = '/home/daug/Documents/GitHub/Cursos/Python_3_Udemy/ex017_arquivo.json'
+
+
+with open(arquivo, 'r') as file:
+    cadastro = json.load(file)
     user['id'] = cadastro[-1]['id'] + 1
 
 print('INCLUSÃO DE NOVO CADASTRO')
@@ -13,7 +15,6 @@ user['age'] = int(input('Idade: '))
 user['gender'] = input('Sexo [f/m]: ')
 
 cadastro.append(user)
-cadastro = json.dumps(cadastro, indent=True)
 
-with open('arquivo.json', 'w') as file2:
-    file2.write(cadastro)
+with open(arquivo, 'w') as file2:
+    json.dump(cadastro, file2, indent=True, ensure_ascii=False)

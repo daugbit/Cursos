@@ -854,22 +854,49 @@ with open('/home/douglas/documents/sub_directory/arquivo.txt') as file_object:
 
 ### JSON
 
-O JSON é um módulo para salvar informações geradas pelos códigos em arquivos externos (.json), que podem ser posteriormente recuperadas e lidas pelo software.  
-
-* Para gravação, utiliza-se `json.dumps(valor, arquivo)`:
-```
-lista = [1, 2, 3]
-with open('arquivo.json') as file_object:
-    json.dumps(lista, file_object)
-```
-
-* Para leitura, utiliza-se `json.load(arquivo)`:
-```
-with open('arquivo.json') as file_object:
-    json.loads(file_object)
-    print(lista)
+O módulo json em Python é usado para trabalhar com dados JSON (JavaScript Object Notation). Existem duas funções principais para codificar (conversão de objeto Python em uma string JSON) dados em Python para JSON, que são dump() e dumps().
+A diferença entre as duas funções é que dump() grava os dados diretamente em um arquivo, enquanto dumps() retorna uma string JSON.
+O método dump() é usado para gravar dados JSON em um arquivo. Ele requer dois argumentos, o primeiro é o objeto Python que você deseja serializar e o segundo é o objeto de arquivo para gravar. Por exemplo:
 
 ```
+import json
+
+dados = {"nome": "João", "idade": 30}
+with open("dados.json", "w") as arquivo:
+    json.dump(dados, arquivo)
+```
+
+O método dumps() é usado para converter um objeto Python em uma string JSON. Ele requer apenas um argumento, o objeto Python que você deseja serializar. Por exemplo:
+```
+import json
+
+dados = {"nome": "João", "idade": 30}
+json_serializado = json.dumps(dados)
+```
+
+**dumps()** é útil quando você precisa enviar dados JSON pela rede ou salvá-los em um banco de dados, por exemplo. Já dump() é útil quando você precisa gravar dados JSON em um arquivo.
+
+Assim como dump() e dumps(), a diferença entre load() e loads() no módulo json em Python também é que um é usado para carregar dados JSON a partir de um arquivo e o outro é usado para carregar dados JSON de uma string.
+A função load() é usada para ler dados JSON de um arquivo e analisá-los em um objeto Python. Ela requer um argumento, o objeto de arquivo para ler. Por exemplo:
+```
+import json
+
+with open("dados.json", "r") as arquivo:
+    dados = json.load(arquivo)
+
+print(dados)  # {'nome': 'João', 'idade': 30}
+```
+A função loads() é usada para converter uma string JSON em um objeto Python. Ela requer apenas um argumento, a string JSON para analisar. Por exemplo:
+```
+import json
+
+json_serializado = '{"nome": "João", "idade": 30}'
+dados = json.loads(json_serializado)
+
+print(dados)  # {'nome': 'João', 'idade': 30}
+```
+**loads()** é útil quando você recebe dados JSON como uma string, por exemplo, quando faz uma solicitação HTTP para uma API. Já load() é útil quando você precisa ler dados JSON de um arquivo local.
+
 
 ---
 ## CLASSES

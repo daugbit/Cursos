@@ -1,7 +1,7 @@
 [
  {
   "id": 1,
-  "name": "Jos\u00e9",
+  "name": "José",
   "age": 35,
   "gender": "m"
  },
@@ -13,7 +13,7 @@
  },
  {
   "id": 3,
-  "name": "Cl\u00e1udio",
+  "name": "Cláudio",
   "age": 40,
   "gender": "m"
  },
@@ -37,24 +37,12 @@
  },
  {
   "id": 7,
-  "name": "K\u00e1tia",
+  "name": "Kátia",
   "age": 14,
   "gender": "f"
  },
  {
   "id": 8,
-  "name": "Douglas",
-  "age": 27,
-  "gender": "m"
- },
- {
-  "id": 9,
-  "name": "Caroline",
-  "age": 23,
-  "gender": "f"
- },
- {
-  "id": 10,
   "name": "Rafael",
   "age": 40,
   "gender": "m"

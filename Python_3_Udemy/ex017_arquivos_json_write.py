@@ -9,8 +9,7 @@ cadastro = [
     {'id': 6, 'name': 'Pedro', 'age': 8, 'gender': 'm'},
     {'id': 7, 'name': 'Kátia', 'age': 14, 'gender': 'f'},
 ]
+arquivo = '/home/daug/Documents/GitHub/Cursos/Python_3_Udemy/ex017_arquivo.json'
 
-lista_json = json.dumps(cadastro, indent=True)
-
-with open('arquivo.json', 'a') as file:
-    file.write(lista_json)
+with open(arquivo, 'w+') as file:
+    json.dump(cadastro, file, indent=True, ensure_ascii=False)

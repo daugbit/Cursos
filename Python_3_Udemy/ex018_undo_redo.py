@@ -1,3 +1,6 @@
+from time import sleep
+from os import system
+
 tasks = []
 deleted_tasks = []
 
@@ -33,36 +36,44 @@ def add():
     print()
     tasks.append(input('Tarefa: '))
     print('Tarefa adicionada com sucesso!')
-    print()
+    sleep(2)
+    system('clear')
 
 
 def showtasks():
+    system('clear')
     print('\nTAREFAS:')
     for i in tasks:
         print(f'[] {i}')
     print()
+    sleep(2)
 
 
 def undo():
-    print()
+    system('clear')
     try:
         deleted_tasks.append(tasks.pop())
-        print(f'Tarefa \"{deleted_tasks[-1]}\" excluída com sucesso!')
+        print(f'Tarefa \"{deleted_tasks[-1]}\" excluída com sucesso!\n')
+        sleep(2)
+        showtasks()
     except IndexError:
         print('Não há tarefas a excluir.')
     print()
 
 
 def redo():
-    print()
+    system('clear')
     try:
         tasks.append(deleted_tasks.pop())
-        print(f'Tarefa \"{tasks[-1]}\" reincluída com sucesso!')
+        print(f'Tarefa \"{tasks[-1]}\" reincluída com sucesso!\n')
+        sleep(2)
+        showtasks()
     except IndexError:
         print('Nenhuma tarefa foi excluída.')
     print()
 
 
+system('clear')
 while True:
     showscreen()
     opt = optionverific(int(input('Escolha uma opção: ')))

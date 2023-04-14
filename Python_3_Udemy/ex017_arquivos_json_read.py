@@ -1,8 +1,12 @@
 import json
 
-with open('arquivo.json', 'r') as file:
-    list_read = file.read()
-    list_read = json.load(list_read)
-    for i in list_read:
+arquivo = '/home/daug/Documents/GitHub/Cursos/Python_3_Udemy/ex017_arquivo.json'
+
+with open(arquivo, 'r') as file:
+    people = json.load(file)
+    
+    print(people)
+
+    for i in people:
         for j, k in i.items():
             print(f'{j}: {k}')
