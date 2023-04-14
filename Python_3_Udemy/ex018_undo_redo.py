@@ -25,11 +25,14 @@ def optionverific(option):
     elif option == 4:
         return redo
     elif option == 5:
+        system('clear')
         print('ATÉ LOGO!')
-        return None
+        return False
     else:
         print('OPÇÃO INVÁLIDA!')
-        return False
+        sleep(2)
+        system('clear')
+        return None
 
 
 def add():
@@ -78,5 +81,7 @@ while True:
     showscreen()
     opt = optionverific(int(input('Escolha uma opção: ')))
     if opt is None:
+        continue
+    elif opt is False:
         break
     opt()

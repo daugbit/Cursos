@@ -569,20 +569,33 @@ def função(a, b, c=0)
 * `return <var>`: retorna o resultado da operação dentro da função para o programa principal.  
 
 
-### Expressões lambda (anônimas)
-São funções simplificadas (com poucos comandos) escritas em apenas 1 linha de código, quando é necessário passar uma função por parâmetro para outra função ou método, por exemplo.  
+### Funções lambda (anônimas)
+Funções lambda são funções anônimas em Python que podem ter qualquer número de argumentos, mas apenas uma expressão como corpo de função. Elas são úteis para criar funções simples e de uso único, sem a necessidade de definir uma função completa.
+A sintaxe básica para criar uma função lambda é:
 ```
-a = lambda x, y: x * y
-print(a(2, 3))
+lambda argumentos : expressão
+```
 
->>> 6
-```
 Uma aplicação prática seria a ordenação de uma lista com sublistas, na qual deve ser informado por qual valor a ordenação deve ser realizada:  
 ```
 lista = [['A', 1], ['B', 2], ['C', 3], ['D', 4], ['E', 5]]
 lista.sort(key=lambda item: item[0])
 lista.sort(key=lambda item: item[1], reverse=True)
 ```
+
+Você pode chamar a função lambda da mesma forma que uma função normal:
+```
+resultado = produto(2, 3)
+print(resultado)  # 6
+```
+
+As funções lambda são frequentemente usadas como argumentos de funções de ordem superior (como map(), filter() e reduce()), onde uma função é necessária como argumento. Por exemplo, a seguinte função lambda é usada para filtrar os números pares de uma lista:
+```
+numeros = [1, 2, 3, 4, 5, 6]
+pares = list(filter(lambda x : x % 2 == 0, numeros))
+print(pares)  # [2, 4, 6]
+```
+
 
 ### Função map
 Retorna um iterador que aplica a expressão (lambda) ou função definida para cada item do objeto iterável.  
@@ -648,6 +661,24 @@ falar_boa_noite = criar_saudacao('Boa noite')
 for nome in ['Maria', 'Joana', 'Luiz']:
     print(falar_bom_dia(nome))
     print(falar_boa_noite(nome))
+```
+
+Outra forma de adiar a execução de uma função seria a utilização da função anônima lambda:
+```
+print('Comandos: listar, desfazer e refazer')
+tarefa = input('Digite uma tarefa ou comando: ')
+
+comandos = {
+        'listar': lambda: listar(tarefas),
+        'desfazer': lambda: desfazer(tarefas, tarefas_refazer),
+        'refazer': lambda: refazer(tarefas, tarefas_refazer),
+        'clear': lambda: os.system('clear'),
+        'adicionar': lambda: adicionar(tarefa, tarefas),
+    }
+    
+comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else comandos['adicionar']
+
+comando()
 ```
 
 ### Variáveis livres e non local
@@ -739,6 +770,37 @@ recursiva(10000)
 
 ```
 O Python tem um limite de segurança para recursão, tendo em vista que cada uma delas gera nova instância no *call stack*. Caso seja muito necessário utilizar acima desse limite, pode-se utilizar `sys.setrecursionlimit(<limite_desejado>)` do módulo **sys** (não recomendado, pois o excesso de instâncias gera sobrecarga na memória do computador).  
+
+### Positional-only arguments
+Permite especificar argumentos que só podem ser passados como argumentos posicionais, ou seja, não podem ser passados como argumentos nomeados. Com os argumentos positional-only, você pode definir argumentos que só podem ser passados na posição correta na chamada da função, sem precisar se preocupar com o nome do argumento. Isso torna o código mais claro e menos suscetível a erros. 
+Para definir um argumento positional-only, você usa a sintaxe de barra (/) antes do nome do argumento na definição da função. Por exemplo:
+```
+def soma(a, b, /):
+    return a + b
+```
+Nesse exemplo, o argumento / indica que todos os argumentos antes da barra são posicionais, e não podem ser passados como argumentos nomeados. Então, para chamar a função soma(), você deve passar os argumentos a e b na ordem correta:
+```
+resultado = soma(2, 3)
+print(resultado)  # 5
+```
+
+### Keyword-only arguments
+Permite especificar argumentos que só podem ser passados como argumentos nomeados, ou seja, não podem ser passados como argumentos posicionais.
+Para definir um argumento keyword-only, você usa a sintaxe de asterisco duplo (**) antes do nome do argumento na definição da função. Por exemplo:
+```
+def enviar_email(destinatario, mensagem, *, cc=None, bcc=None):
+    # lógica de envio de email
+    pass
+
+enviar_email("fulano@example.com", "Olá!", cc="ciclano@example.com", bcc="beltrano@example.com")
+```
+Nesse exemplo, os argumentos cc e bcc só podem ser passados como argumentos nomeados, e não podem ser posicionais. Ou seja, você deve usar a sintaxe de nome do argumento ao chamar a função.
+Vale ressaltar que os argumentos keyword-only só podem ser definidos depois de todos os argumentos posicionais, e que você pode definir argumentos opcionais e posicionais antes dos argumentos keyword-only. No exemplo abaixo, os argumentos cc e bcc são opcionais e posicionais, enquanto o argumento assunto é obrigatório e keyword-only:
+```
+def enviar_email(destinatario, mensagem, cc=None, bcc=None, *, assunto=None):
+    # lógica de envio de email
+    pass
+```
 
 ---
 
