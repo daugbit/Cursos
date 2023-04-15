@@ -146,8 +146,10 @@ back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 * `if <objeto> in <lista>:`: testa se o objeto está dentro de uma lista  
 Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
 
-### Desempacotamento de listas
 
+### Desempacotamento de listas (também aplicável tuplas)
+
+Desempacotamento de dados, também conhecido como "unpacking", é uma técnica em Python que permite atribuir valores a várias variáveis ​​de uma só vez. Isso é especialmente útil quando se trabalha com sequências como listas, tuplas e dicionários, mas também pode ser usado com outras estruturas de dados que suportam a operação de indexação.  
 Podemos fazer a extração total ou parcial de valores contidos em listas para variáveis simples.  
 ```
 lista = ['valor1', 'valor2', 'valor3', 'valor4', 'valor5']
@@ -217,7 +219,20 @@ Exemplo de laço com dicionário:
 * `copy.deppcopy<dicionario>`: o módulo **copy** faz uma cópia completa de um dicionário para um novo, uma vez que a o método **copy** copia apenas o dados imutáveis para o novo dicionário, enquanto linka dados mutáveis ao dicionário original (shallow copy).
   * A estrutura `dic1 = dic2` fará a conexão entre ambas, logo, o que for alterada em uma refletirá na outra.    
 
+
+### Desempacotamento de listas
+
+Utiliza a mesma lógica do desempacotamento de listas e tuplas, porém, ao invés de utilizar o asterisco (*), utiliza dois asteriscos (**):  
+```
+def minha_funcao(a, b):
+    print(a, b)
+
+meu_dicionario = {'a': 1, 'b': 2}
+minha_funcao(**meu_dicionario)
+```
+
 ---
+
 
 ## SETS (CONJUNTOS)
 
@@ -963,9 +978,11 @@ print(dados)  # {'nome': 'João', 'idade': 30}
 ---
 ## CLASSES
 
-* Quando escrevemos uma classe, definimos o comportamento geral que toda uma categoria de objetos pode ter. Quando criamos objetos individuais a partir da classe, cada objeto será automaticamente equipado com o comportamento geral; então você poderá dar a cada objeto as características únicas que desejar.   
-* Uma classe sempre deve ser nomeada com a primeira letra maiúscula.  
-* Para criação de uma classe, usar a seguinte estrutura:  
+Classes em Python são estruturas que permitem definir novos tipos de objetos. Uma classe é uma espécie de modelo ou molde que define as características e comportamentos que os objetos daquela classe devem ter.  
+As classes em Python seguem a orientação a objetos e permitem que você crie objetos que possuam atributos e métodos. Atributos são as características ou propriedades do objeto, enquanto que métodos são as funções ou comportamentos que o objeto pode executar.  
+Quando escrevemos uma classe, definimos o comportamento geral que toda uma categoria de objetos pode ter. Quando criamos objetos individuais a partir da classe, cada objeto será automaticamente equipado com o comportamento geral; então você poderá dar a cada objeto as características únicas que desejar.   
+Uma classe sempre deve ser nomeada com a primeira letra maiúscula.  
+Para criação de uma classe, usar a seguinte estrutura:  
 ```
 class Classe():
 	def __init__(self, <atributo1>, <atributo2>,...)
@@ -1003,6 +1020,8 @@ def update_parameter(self, value)
 	
 <objeto>.update_parameter(valor)
 ```
+
+
 
 ### Métodos de classe
 
