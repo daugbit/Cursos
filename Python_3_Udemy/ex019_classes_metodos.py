@@ -31,3 +31,5 @@ employee2 = People('John', 23, "Seller", 2020)
 
 print(employee1.__dict__)
 print(employee2.__dict__)
+
+print(employee1.employed_time)
