@@ -1024,17 +1024,25 @@ def update_parameter(self, value)
 
 
 ### Métodos de classe
+Métodos de classe em Python são métodos que são definidos dentro da classe, mas que não dependem de uma instância específica da classe. Em outras palavras, eles podem ser chamados diretamente na classe, sem a necessidade de criar um objeto da classe antes.  
+Para definir um método de classe em Python, basta usar o decorador @classmethod antes da definição do método. Esse decorador indica que o método é um método de classe e não um método de instância.  
+```
+class Pessoa:
+    total_pessoas = 0
 
-Um **método de classe** é aquele que se aplica à classe em si, e não à instância e deve ser precedido do decorador **@classmethod**. No lugar de *self*, é identificado por *cls*:  
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        Pessoa.total_pessoas += 1
+
+    @classmethod
+    def total(cls):
+        return cls.total_pessoas
 ```
-class MyClass:
-	@classmethod
-	def function(cls, <var>, <var>)
-		<comandos>
-```
+Nesse exemplo, temos a classe Pessoa, que tem um atributo de classe total_pessoas que guarda o número total de instâncias criadas da classe, e um método de classe chamado total() que retorna o valor desse atributo.  
+Os métodos de classe são úteis quando precisamos criar métodos que realizam alguma operação na classe em si, em vez de em instâncias específicas da classe. Alguns exemplos de uso incluem criar métodos de fábrica para criar instâncias da classe com determinadas configurações, criar métodos de validação que verificam se os dados da classe estão corretos, ou criar métodos utilitários que realizam operações gerais na classe.  
 
 ### Métodos estáticos
-
 Já um **método estático** é como se fosse uma função normal, não relacionada à classe, mas que é definida dentro da classe por questão de organização. Ele é precedido pelo decorador **@staticmethod** e não tem acesso aos parâmetros da classe e das instâncias, logo, não recebe *self* e nem *cls*:  
 ```
 class MyClass:
@@ -1042,10 +1050,10 @@ class MyClass:
 	def function(<var>, <var>)
 		<comandos>
 ```
+Os métodos estáticos são úteis quando precisamos criar métodos que realizam uma operação independente do estado da instância ou da classe, ou que não precisam de acesso aos atributos de classe ou de instância. Alguns exemplos de uso incluem criar funções utilitárias que realizam operações gerais, criar métodos auxiliares que não dependem do estado da instância ou da classe, ou criar métodos de validação que não dependem do estado da instância ou da classe.  
 
-### Getter e setters
-
-Os *getters* e os *setters* servem como manipuladores dos atributos das instâncias de uma classe, que podem verificar se um dados encontra-se da forma desejada e, não estando, o manipulam da forma desejada. Isso tudo através de um código em separado, fazendo com que a estrutura principal da classe não fique poluída com tais comandos.  
+### Getters e setters
+Os *getters* e os *setters* servem como manipuladores dos atributos das instâncias de uma classe, que podem verificar se um dos dados encontra-se da forma desejada e, não estando, o manipulam da forma desejada. Isso tudo através de um código em separado, fazendo com que a estrutura principal da classe não fique poluída com tais comandos.  
 Outra aplicação para esses métodos especiais é quando se encapsula os atributos de uma classe, ou seja, ao se definir o acesso como *privado*. Neste caso, só é necessário o método **getter**.  
 
 O **getter** é o componente que irá fazer a "captura" da variável de dentro do método, fazendo com que a verificação seja executada antes da atribuição de valor a ela.  
