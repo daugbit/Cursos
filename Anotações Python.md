@@ -1302,12 +1302,25 @@ Agora o aluno primário Cadu está falando.
 ```
 No exemplo acima, ao invés de `MembroEscola.falar(self)`, também é possível especificar o método de qual super classe que queremos utilizar através do próprio método **super()**: `super(MembroEscola, self).falar()`.  
 
+Utiliza-se o *method resolution order* (**Classe.mro** ou o atributo **\__mro\__**) para saber qual caminho de resolução dos métodos de uma árvore de classes o Python está considerando. Para o mesmo exemplo de cima:  
+```
+print(AlunoPrimario.mro())
+print(AlunoPrimario.__mro__)
+
+>>> [<class '__main__.AlunoPrimario'>, <class '__main__.Aluno'>, <class '__main__.MembroEscola'>, <class 'object'>]
+>>> (<class '__main__.AlunoPrimario'>, <class '__main__.Aluno'>, <class '__main__.MembroEscola'>, <class 'object'>)
+```
+
 Uma classe pode ter heranças múltiplas, ou seja, herdar mais de uma classe. A ancestralidade é definida na definição da classe:  
 ```
 class Smartphone(Electronic, LogCenter):
 ```
 
-No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, o Python executará o método da classe que estiver definida primeiro dentro dos **()**.  
+No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, geralmente o Python executará o método da classe que estiver definida primeiro dentro dos **()**. Caso o código seja muito complexo, pode-se utilizar o **mro** a fim de descobrir o caminho de herança que o Python está considerando.  
+
+
+
+
 
 
 
