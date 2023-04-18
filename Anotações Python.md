@@ -1248,7 +1248,22 @@ d1.dar_bronca()
 ```
 
 * Podemos sobreescrever um atributo da classe-mãe nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o valor do atributo inserido nela.  
-* Quando sobreescrevemos um método (ou em outros casos), podemos ainda chamar o método **super()**, que irá chamar o método especificado da classe-mãe. Caso a classe da qual se queira sobreescrever o método seja de níveis superiores à mãe (ancestral), deve-se utilizar o nome dela no lugar de *super()*.  
+```
+class CarrinhoCompras:
+    name = 'Nome do carrinho'
+
+
+class Produto:
+    name = 'Nome do produto'
+
+
+p1 = Produto()
+print(p1.name)
+
+>>>Nome do produto
+```
+
+* Quando sobreescrevemos um método (ou em outros casos), podemos ainda chamar o método **super()**, que irá chamar o método especificado da classe-mãe. Caso a classe da qual se queira sobreescrever o método seja de níveis superiores à mãe (ancestral), deve-se utilizar o nome dela no lugar de *super()*.
 * Pode-se ainda criar um novo método construtor **__init__** para a subclasse, reaproveitando-se os atributos da super-classe e criando novos.  
 
 ```
@@ -1285,9 +1300,9 @@ Membro Cadu está falando.
 Aluno Cadu está falando.
 Agora o aluno primário Cadu está falando.
 ```
+No exemplo acima, ao invés de `MembroEscola.falar(self)`, também é possível especificar o método de qual super classe que queremos utilizar através do próprio método **super()**: `super(MembroEscola, self).falar()`.  
 
 Uma classe pode ter heranças múltiplas, ou seja, herdar mais de uma classe. A ancestralidade é definida na definição da classe:  
-
 ```
 class Smartphone(Electronic, LogCenter):
 ```
