@@ -34,3 +34,6 @@ class Professor(MembroEscola):
 class Diretor(MembroEscola):
     def dar_bronca(self):
         print(f'O diretor {self.nome} está dando bronca.')
+
+
+print(AlunoPrimario.__mro__)
