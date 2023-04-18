@@ -1,32 +1,36 @@
-import datetime
+class MembroEscola:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
 
-class People:
-    current_year = datetime.datetime.today().year
-
-    def __init__(self, name, age, function, hiring_year):
-        self.name = name
-        self.age = age
-        self.function = function
-        self.employed_time = self.employed_time(hiring_year)
-
-    @property
-    def age(self):
-        return self._age
-
-    @age.setter
-    def age(self, value):
-        if isinstance(value, str):
-            value = int(value)
-        self._age = value
-
-    @classmethod
-    def employed_time(cls, hiring_year):
-        employed_time = cls.current_year - hiring_year
-        return employed_time
+    def falar(self):
+        print(f'Membro {self.nome} está falando.')
 
 
-employee1 = People('Mark', '45', 'Manager', 2009)
-employee2 = People('John', 23, "Seller", 2020)
+class Aluno(MembroEscola):
+    def falar(self):
+        print(f'Aluno {self.nome} está falando.')
 
-print(employee1.__dict__)
-print(employee2.__dict__)
+    def estudar(self):
+        print(f'O aluno {self.nome} está estudando.')
+
+
+class AlunoPrimario(Aluno):
+    def __init__(self, nome, sobrenome, idade):
+        MembroEscola.__init__(self, nome, idade)
+        self.sobrenome = sobrenome
+
+    def falar(self):
+        MembroEscola.falar(self)
+        Aluno.falar(self)
+        print(f'Agora o aluno primário {self.nome} está falando.')
+
+
+class Professor(MembroEscola):
+    def dar_aula(self):
+        print(f'O professor {self.nome} está dando aula.')
+
+
+class Diretor(MembroEscola):
+    def dar_bronca(self):
+        print(f'O diretor {self.nome} está dando bronca.')
