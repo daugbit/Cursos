@@ -1,39 +1,25 @@
-class MembroEscola:
-    def __init__(self, nome, idade):
-        self.nome = nome
-        self.idade = idade
+class Log:
+    def _log(self, msg):
+        raise NotImplementedError('Implemente o método log')
 
-    def falar(self):
-        print(f'Membro {self.nome} está falando.')
+    def log_error(self, msg):
+        return self._log(f'Error: {msg}')
 
-
-class Aluno(MembroEscola):
-    def falar(self):
-        print(f'Aluno {self.nome} está falando.')
-
-    def estudar(self):
-        print(f'O aluno {self.nome} está estudando.')
+    def log_success(self, msg):
+        return self._log(f'Success: {msg}')
 
 
-class AlunoPrimario(Aluno):
-    def __init__(self, nome, sobrenome, idade):
-        MembroEscola.__init__(self, nome, idade)
-        self.sobrenome = sobrenome
-
-    def falar(self):
-        MembroEscola.falar(self)
-        Aluno.falar(self)
-        print(f'Agora o aluno primário {self.nome} está falando.')
+class LogFileMixin(Log):
+    def _log(self, msg):
+        print(msg)
 
 
-class Professor(MembroEscola):
-    def dar_aula(self):
-        print(f'O professor {self.nome} está dando aula.')
+class LogPrintMixin(Log):
+    def _log(self, msg):
+        print(f'{msg} ({self.__class__.__name__})')
 
 
-class Diretor(MembroEscola):
-    def dar_bronca(self):
-        print(f'O diretor {self.nome} está dando bronca.')
-
-
-print(AlunoPrimario.__mro__)
+if __name__ == '__main__':
+    l = LogPrintMixin()
+    l.log_error('qualquer coisa')
+    l.log_success('Que legal')
