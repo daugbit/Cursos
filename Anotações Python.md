@@ -1319,7 +1319,88 @@ class Smartphone(Electronic, LogCenter):
 No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, geralmente o Python executará o método da classe que estiver definida primeiro dentro dos **()**. Caso o código seja muito complexo, pode-se utilizar o **mro** a fim de descobrir o caminho de herança que o Python está considerando.  
 
 
+### Mixins
+* Em programação orientada a objetos, um mixin é uma classe que define um conjunto de métodos e atributos que podem ser adicionados a outras classes sem exigir herança direta dessas classes.  
+* Os mixins geralmente não são projetados para serem usados como classes independentes, mas sim para serem combinados com outras classes para fornecer funcionalidades adicionais. Isso pode ser útil quando queremos adicionar comportamento comum a várias classes diferentes sem criar hierarquias de herança complexas.  
+* Em Python, os mixins são geralmente definidos como classes que contêm métodos e atributos que podem ser adicionados a outras classes usando herança múltipla.  
+* Por exemplo, podemos criar um mixin LoggableMixin que define um método log() para registrar mensagens de log. Podemos então adicionar esse mixin a várias classes diferentes, para que essas classes também tenham o método log() disponível.  
+```
+class LoggableMixin:
+    def log(self, message):
+        print(f"{self.__class__.__name__}: {message}")
+        
+class MyClass(LoggableMixin):
+    def my_method(self):
+        self.log("executing my_method")
+```
+Neste exemplo, a classe MyClass herda do mixin LoggableMixin. Isso permite que a classe MyClass use o método log() definido em LoggableMixin.  
+Ao usar mixins, é importante ter cuidado para evitar conflitos de nomes entre os métodos e atributos definidos nas classes e mixins. Uma boa prática é usar um prefixo no nome dos métodos e atributos definidos no mixin, como mixin_method() ou mixin_attribute. Isso ajuda a evitar conflitos com os nomes de métodos e atributos definidos nas classes que usam o mixin.  
 
+
+### Abstração e classes abstratas
+* Abstração é um conceito importante em programação orientada a objetos que envolve a criação de classes abstratas que definem um conjunto de métodos ou atributos que devem ser implementados por outras classes que herdam dessa classe abstrata.  
+* O objetivo da abstração é permitir que classes com características semelhantes sejam agrupadas em uma hierarquia de classes, com uma classe abstrata atuando como uma classe base que define o comportamento geral das subclasses.  
+* Em Python, é possível criar classes abstratas usando o módulo abc e a classe ABC (Abstract Base Class). Uma classe abstrata é uma classe que não pode ser instanciada diretamente e que contém pelo menos um método abstrato, que é um método que deve ser implementado por qualquer classe que herda da classe abstrata.  
+```
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def comer(self):
+        pass
+
+    @abstractmethod
+    def dormir(self):
+        pass
+
+class Gato(Animal):
+    def comer(self):
+        print("O gato está comendo.")
+
+    def dormir(self):
+        print("O gato está dormindo.")
+```
+Nesse exemplo, a classe Animal é uma classe abstrata que define dois métodos abstratos: comer() e dormir(). Qualquer classe que herda de Animal deve implementar esses dois métodos. A classe Gato herda de Animal e implementa os métodos comer() e dormir().  
+
+É possível usar métodos abstratos em conjunto com outros decoradores em Python, mas é importante lembrar que a ordem em que os decoradores são aplicados pode afetar o comportamento do código. Para usar um método abstrato com outro decorador, basta aplicar o decorador antes/depois do decorador @abstractmethod. Em geral, é uma boa prática colocar o decorador @abstractmethod no início do método, logo acima do cabeçalho do método.  
+```
+from abc import ABC, abstractmethod
+
+
+class AbstractFoo(ABC):
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    # @abstractmethod
+    def name(self):
+        return self._name
+
+    @name.setter
+    @abstractmethod
+    def name(self, name): ...
+
+
+class Foo(AbstractFoo):
+    def __init__(self, name):
+        super().__init__(name)
+
+    # @property
+    # def name(self):
+    #     return self._name
+
+    @AbstractFoo.name.setter        # Ao não declarar a @property na classe atual,
+    def name(self, name):           # deve-se especificar o nome classe abstrata no @setter.
+        self._name = name
+
+
+foo = Foo('Bar')
+print(foo.name)
+foo.name = 'Arroz'
+print(foo.name)
+```
+
+### Polimorfismo
 
 
 
