@@ -187,7 +187,7 @@ back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
 
 
-### Desempacotamento de listas (também aplicável tuplas)
+### Desempacotamento de listas (também aplicável a tuplas)
 
 Desempacotamento de dados, também conhecido como "unpacking", é uma técnica em Python que permite atribuir valores a várias variáveis ​​de uma só vez. Isso é especialmente útil quando se trabalha com sequências como listas, tuplas e dicionários, mas também pode ser usado com outras estruturas de dados que suportam a operação de indexação.  
 Podemos fazer a extração total ou parcial de valores contidos em listas para variáveis simples.  
@@ -260,7 +260,7 @@ Exemplo de laço com dicionário:
   * A estrutura `dic1 = dic2` fará a conexão entre ambas, logo, o que for alterada em uma refletirá na outra.    
 
 
-### Desempacotamento de listas
+### Desempacotamento de dicionários
 
 Utiliza a mesma lógica do desempacotamento de listas e tuplas, porém, ao invés de utilizar o asterisco (*), utiliza dois asteriscos (**):  
 ```
