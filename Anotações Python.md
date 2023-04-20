@@ -65,6 +65,46 @@ else:
 	* `<objeto> = groupby(<lista>, ordenação)`: agrupa os valores de uma lista a partir de uma ordenação especificada - a qual pode ser especificada a partir de uma expressão *lambda*;  
 	* `l1, l2, l3 = tee(l0)`: faz cópia do iterador **l0** para outras variáveis, fazendo com que os valores contidos nele possam ser iterados mais de uma vez;  
 
+
+### pathlib
+O módulo pathlib é uma biblioteca incorporada do Python que fornece uma maneira fácil e orientada a objetos para trabalhar com caminhos de arquivo e diretório. Com o módulo pathlib, é possível criar, manipular e acessar caminhos de arquivos e diretórios usando objetos de caminho (Path objects), que representam um caminho absoluto ou relativo em um sistema de arquivos.
+```
+from pathlib import Path
+
+path = Path('/path/to/file')		# Criando um objeto Path
+
+if path.exists():			# Verificando se um arquivo existe
+    print('O arquivo existe')
+
+print(path.name)			# Obtendo o nome do arquivo
+
+print(path.parent)			# Obtendo o diretório pai
+
+print(path.absolute())			# Obtendo o caminho absoluto
+
+for file in Path('/path/to/directory').iterdir():	# Listando arquivos em um diretório
+    print(file)
+```
+```
+from pathlib import Path
+
+path = Path('/path/to/file.txt')	# Criando um objeto Path para um arquivo existente
+
+print(path.exists())  			# retorna True
+path.touch() 				# Cria o arquivo
+print(path.name)  			# Obtendo o nome do arquivo: 'file.txt'
+print(path.parent)			# Obtendo o diretório pai: '/path/to'
+for file in path.iterdir():		# Listando todos os arquivos no diretório
+    if file.is_file():
+        print(file.name)
+path.mkdir()				# Criando o diretório
+path.write_text('xxx')			# Escreve algo no arquivo criado
+with path.open('a+') as file:		# Escreve algo no arquivo criado (modo append)
+	file.write('lorem ipsum\n')
+	file.write('dolor sit amet\n')
+
+```
+
 ---
 
 ## MANIPULAÇÃO DE STRINGS
