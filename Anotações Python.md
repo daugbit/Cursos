@@ -1440,7 +1440,99 @@ foo.name = 'Arroz'
 print(foo.name)
 ```
 
+
 ### Polimorfismo
+Polimorfismo é um conceito fundamental da programação orientada a objetos que se refere à habilidade de objetos de diferentes classes serem tratados de forma uniforme através de uma interface comum. Em outras palavras, o polimorfismo permite que objetos de diferentes tipos possam ser utilizados de maneira intercambiável em um programa. Existem duas formas principais de se implementar o polimorfismo em Python: sobrecarga de operadores e polimorfismo de métodos.  
+* A sobrecarga de operadores permite que operações comuns sejam realizadas em objetos de diferentes classes, permitindo que sejam tratados de forma uniforme. Por exemplo, em Python, a adição de dois objetos pode ser realizada utilizando o operador "+" através do método especial add(). Se duas classes diferentes implementam esse método, elas podem ser somadas como se fossem do mesmo tipo.  
+* O polimorfismo de métodos, por sua vez, permite que diferentes classes implementem métodos com o mesmo nome, permitindo que possam ser chamados de forma uniforme. Por exemplo, duas classes diferentes podem implementar um método chamado "desenhar", que podem ser chamados de forma igual, mesmo que a implementação seja diferente em cada classe.  
+
+```
+class Animal:
+    def falar(self):
+        pass
+
+class Cachorro(Animal):
+    def falar(self):
+        return "Au Au"
+
+class Gato(Animal):
+    def falar(self):
+        return "Miau"
+
+def fazer_animal_falar(animal):
+    print(animal.falar())
+
+cachorro = Cachorro()
+gato = Gato()
+
+fazer_animal_falar(cachorro)  # imprime "Au Au"
+fazer_animal_falar(gato)  # imprime "Miau"
+```
+No exemplo acima, o método fazer_animal_falar() recebe um objeto do tipo Animal, mas ele pode ser um objeto de qualquer uma das subclasses Cachorro ou Gato. Isso é possível graças ao polimorfismo, que permite que diferentes objetos sejam tratados de forma uniforme, desde que implementem os mesmos métodos.  
+
+
+### Criando exceptions
+Para criar exceptions personalizadas em Python, basta criar uma classe - com o nome da exceção - que herda da classe **Exceptions**:  
+```
+class MyError(Exception):
+    ...
+
+
+class AnotherError(Exception):
+    ...
+
+
+def raise_():
+    exception_ = MeuError('Meu erro personalizado')
+    raise exception_
+
+raise_()
+```
+
+---
+## DUNDER METHODS (ou métodos especiais/mágicos)
+
+Dunder methods (ou "métodos mágicos") são métodos especiais em Python que possuem um nome especial iniciando e terminando com dois underlines (ou "dunder"), como __init__, __str__, __len__, entre outros. Esses métodos são usados para definir comportamentos específicos para objetos em Python.  
+
+O método especial **__repr__**, por exemplo, é usado para fornecer uma representação de string "oficial" de um objeto:
+```
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def __repr__(self):
+        return f'Pessoa(nome={self.nome}, idade={self.idade})'
+
+pessoa = Pessoa('João', 30)
+print(pessoa)  # saída: Pessoa(nome=João, idade=30)
+```
+```
+class Ponto:
+    def __init__(self, x, y, z='String'):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __str__(self):
+        return f'({self.x}, {self.y})'
+
+    def __repr__(self):
+        # class_name = self.__class__.__name__
+        class_name = type(self).__name__
+        return f'{class_name}(x={self.x!r}, y={self.y!r}, z={self.z!r})'
+
+
+p1 = Ponto(1, 2)
+p2 = Ponto(978, 876)
+print(p1)
+print(repr(p2))
+print(f'{p2!r}')
+```
+A notação !r dentro de uma string de formatação em Python indica que o valor a ser inserido na string deve ser representado utilizando o método especial __repr__.  
+O uso de !r no retorno da função __repr__ é uma convenção para que os valores dos atributos sejam representados usando o método repr em vez do método str. Isso pode ser útil para depuração ou quando se deseja representar de forma precisa os valores dos atributos. No exemplo dado, a função retorna uma string que representa uma instância da classe class_name e seus atributos x, y e z, e o uso de !r garante que os valores dos atributos sejam representados usando o método repr.  
+
+
 
 
 
