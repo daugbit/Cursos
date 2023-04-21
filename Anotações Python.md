@@ -65,6 +65,46 @@ else:
 	* `<objeto> = groupby(<lista>, ordenação)`: agrupa os valores de uma lista a partir de uma ordenação especificada - a qual pode ser especificada a partir de uma expressão *lambda*;  
 	* `l1, l2, l3 = tee(l0)`: faz cópia do iterador **l0** para outras variáveis, fazendo com que os valores contidos nele possam ser iterados mais de uma vez;  
 
+
+### pathlib
+O módulo pathlib é uma biblioteca incorporada do Python que fornece uma maneira fácil e orientada a objetos para trabalhar com caminhos de arquivo e diretório. Com o módulo pathlib, é possível criar, manipular e acessar caminhos de arquivos e diretórios usando objetos de caminho (Path objects), que representam um caminho absoluto ou relativo em um sistema de arquivos.
+```
+from pathlib import Path
+
+path = Path('/path/to/file')		# Criando um objeto Path
+
+if path.exists():			# Verificando se um arquivo existe
+    print('O arquivo existe')
+
+print(path.name)			# Obtendo o nome do arquivo
+
+print(path.parent)			# Obtendo o diretório pai
+
+print(path.absolute())			# Obtendo o caminho absoluto
+
+for file in Path('/path/to/directory').iterdir():	# Listando arquivos em um diretório
+    print(file)
+```
+```
+from pathlib import Path
+
+path = Path('/path/to/file.txt')	# Criando um objeto Path para um arquivo existente
+
+print(path.exists())  			# retorna True
+path.touch() 				# Cria o arquivo
+print(path.name)  			# Obtendo o nome do arquivo: 'file.txt'
+print(path.parent)			# Obtendo o diretório pai: '/path/to'
+for file in path.iterdir():		# Listando todos os arquivos no diretório
+    if file.is_file():
+        print(file.name)
+path.mkdir()				# Criando o diretório
+path.write_text('xxx')			# Escreve algo no arquivo criado
+with path.open('a+') as file:		# Escreve algo no arquivo criado (modo append)
+	file.write('lorem ipsum\n')
+	file.write('dolor sit amet\n')
+
+```
+
 ---
 
 ## MANIPULAÇÃO DE STRINGS
@@ -147,7 +187,7 @@ back | -- | -- | -- | -- | -- | -- | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 |
 Para copiar uma lista (a) para outra (b), deve-se utilizar `b = a[:]`. Ao utilizar o comando `b = a`, é criada uma ligação entre ambas e o que for alterado em uma refletirá na outra.  
 
 
-### Desempacotamento de listas (também aplicável tuplas)
+### Desempacotamento de listas (também aplicável a tuplas)
 
 Desempacotamento de dados, também conhecido como "unpacking", é uma técnica em Python que permite atribuir valores a várias variáveis ​​de uma só vez. Isso é especialmente útil quando se trabalha com sequências como listas, tuplas e dicionários, mas também pode ser usado com outras estruturas de dados que suportam a operação de indexação.  
 Podemos fazer a extração total ou parcial de valores contidos em listas para variáveis simples.  
@@ -220,7 +260,7 @@ Exemplo de laço com dicionário:
   * A estrutura `dic1 = dic2` fará a conexão entre ambas, logo, o que for alterada em uma refletirá na outra.    
 
 
-### Desempacotamento de listas
+### Desempacotamento de dicionários
 
 Utiliza a mesma lógica do desempacotamento de listas e tuplas, porém, ao invés de utilizar o asterisco (*), utiliza dois asteriscos (**):  
 ```
@@ -1248,7 +1288,22 @@ d1.dar_bronca()
 ```
 
 * Podemos sobreescrever um atributo da classe-mãe nomeando um atributo da classe-filha com o mesmo nome. Assim, as instâncias criadas a partir da classe-filha utilizarão o valor do atributo inserido nela.  
-* Quando sobreescrevemos um método (ou em outros casos), podemos ainda chamar o método **super()**, que irá chamar o método especificado da classe-mãe. Caso a classe da qual se queira sobreescrever o método seja de níveis superiores à mãe (ancestral), deve-se utilizar o nome dela no lugar de *super()*.  
+```
+class CarrinhoCompras:
+    name = 'Nome do carrinho'
+
+
+class Produto:
+    name = 'Nome do produto'
+
+
+p1 = Produto()
+print(p1.name)
+
+>>>Nome do produto
+```
+
+* Quando sobreescrevemos um método (ou em outros casos), podemos ainda chamar o método **super()**, que irá chamar o método especificado da classe-mãe. Caso a classe da qual se queira sobreescrever o método seja de níveis superiores à mãe (ancestral), deve-se utilizar o nome dela no lugar de *super()*.
 * Pode-se ainda criar um novo método construtor **__init__** para a subclasse, reaproveitando-se os atributos da super-classe e criando novos.  
 
 ```
@@ -1285,14 +1340,108 @@ Membro Cadu está falando.
 Aluno Cadu está falando.
 Agora o aluno primário Cadu está falando.
 ```
+No exemplo acima, ao invés de `MembroEscola.falar(self)`, também é possível especificar o método de qual super classe que queremos utilizar através do próprio método **super()**: `super(MembroEscola, self).falar()`.  
+
+Utiliza-se o *method resolution order* (**Classe.mro** ou o atributo **\__mro\__**) para saber qual caminho de resolução dos métodos de uma árvore de classes o Python está considerando. Para o mesmo exemplo de cima:  
+```
+print(AlunoPrimario.mro())
+print(AlunoPrimario.__mro__)
+
+>>> [<class '__main__.AlunoPrimario'>, <class '__main__.Aluno'>, <class '__main__.MembroEscola'>, <class 'object'>]
+>>> (<class '__main__.AlunoPrimario'>, <class '__main__.Aluno'>, <class '__main__.MembroEscola'>, <class 'object'>)
+```
 
 Uma classe pode ter heranças múltiplas, ou seja, herdar mais de uma classe. A ancestralidade é definida na definição da classe:  
-
 ```
 class Smartphone(Electronic, LogCenter):
 ```
 
-No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, o Python executará o método da classe que estiver definida primeiro dentro dos **()**.  
+No caso de ser chamado algum método na classe acima que esteja nas duas classes-mãe, geralmente o Python executará o método da classe que estiver definida primeiro dentro dos **()**. Caso o código seja muito complexo, pode-se utilizar o **mro** a fim de descobrir o caminho de herança que o Python está considerando.  
+
+
+### Mixins
+* Em programação orientada a objetos, um mixin é uma classe que define um conjunto de métodos e atributos que podem ser adicionados a outras classes sem exigir herança direta dessas classes.  
+* Os mixins geralmente não são projetados para serem usados como classes independentes, mas sim para serem combinados com outras classes para fornecer funcionalidades adicionais. Isso pode ser útil quando queremos adicionar comportamento comum a várias classes diferentes sem criar hierarquias de herança complexas.  
+* Em Python, os mixins são geralmente definidos como classes que contêm métodos e atributos que podem ser adicionados a outras classes usando herança múltipla.  
+* Por exemplo, podemos criar um mixin LoggableMixin que define um método log() para registrar mensagens de log. Podemos então adicionar esse mixin a várias classes diferentes, para que essas classes também tenham o método log() disponível.  
+```
+class LoggableMixin:
+    def log(self, message):
+        print(f"{self.__class__.__name__}: {message}")
+        
+class MyClass(LoggableMixin):
+    def my_method(self):
+        self.log("executing my_method")
+```
+Neste exemplo, a classe MyClass herda do mixin LoggableMixin. Isso permite que a classe MyClass use o método log() definido em LoggableMixin.  
+Ao usar mixins, é importante ter cuidado para evitar conflitos de nomes entre os métodos e atributos definidos nas classes e mixins. Uma boa prática é usar um prefixo no nome dos métodos e atributos definidos no mixin, como mixin_method() ou mixin_attribute. Isso ajuda a evitar conflitos com os nomes de métodos e atributos definidos nas classes que usam o mixin.  
+
+
+### Abstração e classes abstratas
+* Abstração é um conceito importante em programação orientada a objetos que envolve a criação de classes abstratas que definem um conjunto de métodos ou atributos que devem ser implementados por outras classes que herdam dessa classe abstrata.  
+* O objetivo da abstração é permitir que classes com características semelhantes sejam agrupadas em uma hierarquia de classes, com uma classe abstrata atuando como uma classe base que define o comportamento geral das subclasses.  
+* Em Python, é possível criar classes abstratas usando o módulo abc e a classe ABC (Abstract Base Class). Uma classe abstrata é uma classe que não pode ser instanciada diretamente e que contém pelo menos um método abstrato, que é um método que deve ser implementado por qualquer classe que herda da classe abstrata.  
+```
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def comer(self):
+        pass
+
+    @abstractmethod
+    def dormir(self):
+        pass
+
+class Gato(Animal):
+    def comer(self):
+        print("O gato está comendo.")
+
+    def dormir(self):
+        print("O gato está dormindo.")
+```
+Nesse exemplo, a classe Animal é uma classe abstrata que define dois métodos abstratos: comer() e dormir(). Qualquer classe que herda de Animal deve implementar esses dois métodos. A classe Gato herda de Animal e implementa os métodos comer() e dormir().  
+
+É possível usar métodos abstratos em conjunto com outros decoradores em Python, mas é importante lembrar que a ordem em que os decoradores são aplicados pode afetar o comportamento do código. Para usar um método abstrato com outro decorador, basta aplicar o decorador antes/depois do decorador @abstractmethod. Em geral, é uma boa prática colocar o decorador @abstractmethod no início do método, logo acima do cabeçalho do método.  
+```
+from abc import ABC, abstractmethod
+
+
+class AbstractFoo(ABC):
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    # @abstractmethod
+    def name(self):
+        return self._name
+
+    @name.setter
+    @abstractmethod
+    def name(self, name): ...
+
+
+class Foo(AbstractFoo):
+    def __init__(self, name):
+        super().__init__(name)
+
+    # @property
+    # def name(self):
+    #     return self._name
+
+    @AbstractFoo.name.setter        # Ao não declarar a @property na classe atual,
+    def name(self, name):           # deve-se especificar o nome classe abstrata no @setter.
+        self._name = name
+
+
+foo = Foo('Bar')
+print(foo.name)
+foo.name = 'Arroz'
+print(foo.name)
+```
+
+### Polimorfismo
+
 
 
 

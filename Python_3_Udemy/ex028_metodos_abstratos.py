@@ -3,10 +3,10 @@ from abc import ABC, abstractmethod
 
 class AbstractFoo(ABC):
     def __init__(self, name):
-        self._name = None
-        self.name = name
+        self._name = name
 
     @property
+    # @abstractmethod
     def name(self):
         return self._name
 
@@ -18,12 +18,17 @@ class AbstractFoo(ABC):
 class Foo(AbstractFoo):
     def __init__(self, name):
         super().__init__(name)
-        # print('Sou inútil')
 
-    @name.setter
-    def name(self, name):
+    # @property
+    # def name(self):
+    #     return self._name
+
+    @AbstractFoo.name.setter        # Ao não declarar a @property na classe atual,
+    def name(self, name):           # deve-se especificar o nome classe abstrata no @setter.
         self._name = name
 
 
 foo = Foo('Bar')
+print(foo.name)
+foo.name = 'Arroz'
 print(foo.name)
