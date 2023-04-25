@@ -10,7 +10,7 @@ class CarrinhoCompras:
         print('CARRINHO DE COMPRAS'.center(30))
         print('=' * 30)
         for produto in self.carrinho:
-            print(produto.nome.ljust(18), 'R$', str(produto.preco).rjust(8))
+            print(produto.name.ljust(18), 'R$', str(produto.preco).rjust(8))
         print('=' * 30)
 
     def subtotal(self):

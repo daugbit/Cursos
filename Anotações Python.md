@@ -457,6 +457,13 @@ def generator():
     for i in range(1000):
         yield i
 ```
+**yield** é uma palavra-chave em Python que é usada para criar geradores. Um gerador é uma função que produz um fluxo de valores (iteráveis) que pode ser iterado usando um loop for, por exemplo. Quando uma função contém a palavra-chave yield, ela se torna um gerador.  
+
+Ao contrário das funções normais, as funções geradoras não retornam um valor imediatamente. Em vez disso, elas retornam um objeto gerador, que é usado para controlar a execução da função. Cada vez que o gerador é iterado, a execução da função é retomada a partir do ponto em que foi interrompida na última iteração e continua até encontrar a próxima instrução yield, que retorna um valor para o iterador e interrompe a execução novamente.  
+
+Isso torna possível produzir sequências de valores sob demanda, em vez de ter que criar toda a sequência de uma vez, o que pode ser mais eficiente em termos de memória e tempo de execução.  
+
+
 Na list comprehension, utiliza-se **()** ao invés de **[]**:
 ```
 lista = (x for x in range(1000))
@@ -1489,9 +1496,8 @@ def raise_():
 raise_()
 ```
 
----
-## DUNDER METHODS (ou métodos especiais/mágicos)
 
+### Dunder methods (ou métodos especiais/mágicos)
 Dunder methods (ou "métodos mágicos") são métodos especiais em Python que possuem um nome especial iniciando e terminando com dois underlines (ou "dunder"), como __init__, __str__, __len__, entre outros. Esses métodos são usados para definir comportamentos específicos para objetos em Python.  
 
 O método especial **__repr__**, por exemplo, é usado para fornecer uma representação de string "oficial" de um objeto:
@@ -1533,13 +1539,50 @@ A notação !r dentro de uma string de formatação em Python indica que o valor
 O uso de !r no retorno da função __repr__ é uma convenção para que os valores dos atributos sejam representados usando o método repr em vez do método str. Isso pode ser útil para depuração ou quando se deseja representar de forma precisa os valores dos atributos. No exemplo dado, a função retorna uma string que representa uma instância da classe class_name e seus atributos x, y e z, e o uso de !r garante que os valores dos atributos sejam representados usando o método repr.  
 
 
+### Context manager com classes
+Context managers são uma forma de definir recursos que precisam ser alocados e liberados de forma confiável em torno de um bloco de código, como arquivos, conexões de banco de dados, etc. Em Python, o gerenciamento de contexto é feito por meio de um objeto gerenciador de contexto.  
+O gerenciador de contexto é um objeto que define os métodos __enter__ e __exit__. O método __enter__ é chamado quando o bloco de código é executado e retorna o objeto a ser usado dentro do bloco. O método __exit__ é chamado quando o bloco é concluído, independentemente de como ele é concluído (com sucesso ou por meio de uma exceção), e é responsável por liberar os recursos alocados.  
+Uma classe que implementa um gerenciador de contexto pode ser usada como um context manager em um bloco de código usando a declaração with. Quando o bloco de código é concluído, o método __exit__ da classe é chamado para liberar os recursos alocados.  
+```
+class File:
+    def __init__(self, filename, mode):
+        self.filename = filename
+        self.mode = mode
+
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        return self.file
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.file.close()
+	return True
+
+with File('example.txt', 'w') as f:
+    f.write('Hello, world!')
+```
+O retorno (_return True_) no método __exit__ é opcional, tendo a função de ocultar eventuais exceções que ocorram dentro do bloco *with*.
+
+A utilização de with open() se refere ao uso de um context manager disponibilizado pela linguagem Python que permite a abertura e manipulação segura de arquivos. Já o context manager em classes é uma técnica que permite criar seus próprios contextos para gerenciar recursos, como conexões de banco de dados, sockets de rede, etc.
+
+Ao definir um gerenciador de contexto em uma classe, você pode encapsular a lógica necessária para abrir e fechar o recurso, e garantir que o recurso seja fechado corretamente mesmo em caso de exceção. Além disso, a utilização do gerenciador de contexto em classes permite encapsular a complexidade do gerenciamento de recursos em uma classe, tornando a lógica do programa mais modular e fácil de manter.  
 
 
+###Context manager com funções (contextlib)
+O módulo contextlib é um módulo padrão do Python que fornece ferramentas para criar e trabalhar com gerenciadores de contexto. Uma das funcionalidades mais úteis é o decorador @contextmanager, que permite criar gerenciadores de contexto como geradores em vez de classes. Com o @contextmanager, podemos criar um gerenciador de contexto simples com muito menos código do que seria necessário com uma classe.  
+```
+from contextlib import contextmanager
 
+@contextmanager
+def open_file(file_path, mode):
+    try:
+        file = open(file_path, mode)
+        yield file
+    finally:
+        file.close()
 
-
-
-
+with open_file('arquivo.txt', 'r') as f:
+    contents = f.read()
+```
 
 
 
