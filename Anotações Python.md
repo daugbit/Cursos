@@ -1538,6 +1538,22 @@ print(f'{p2!r}')
 A notação !r dentro de uma string de formatação em Python indica que o valor a ser inserido na string deve ser representado utilizando o método especial __repr__.  
 O uso de !r no retorno da função __repr__ é uma convenção para que os valores dos atributos sejam representados usando o método repr em vez do método str. Isso pode ser útil para depuração ou quando se deseja representar de forma precisa os valores dos atributos. No exemplo dado, a função retorna uma string que representa uma instância da classe class_name e seus atributos x, y e z, e o uso de !r garante que os valores dos atributos sejam representados usando o método repr.  
 
+Já o método especial __call__ é utilizado para tornar uma instância de uma classe chamável, como uma função. Quando esse método é definido em uma classe, a instância da classe pode ser chamada como uma função e o código dentro do método __call__ será executado.  
+```
+class Contador:
+    def __init__(self):
+        self.valor = 0
+    
+    def __call__(self):
+        self.valor += 1
+        return self.valor
+
+c = Contador()
+print(c()) # 1
+print(c()) # 2
+print(c()) # 3
+```
+
 
 ### Context manager com classes
 Context managers são uma forma de definir recursos que precisam ser alocados e liberados de forma confiável em torno de um bloco de código, como arquivos, conexões de banco de dados, etc. Em Python, o gerenciamento de contexto é feito por meio de um objeto gerenciador de contexto.  
@@ -1584,6 +1600,27 @@ with open_file('arquivo.txt', 'r') as f:
     contents = f.read()
 ```
 
+###Metaclasses
+Em Python, todas as classes são instâncias de uma metaclasse. Por padrão, a metaclasse é a classe type. No entanto, é possível definir uma metaclasse personalizada fornecendo uma classe como argumento da metaclass no momento da criação da classe.  
 
+As metaclasses podem ser usadas para modificar ou adicionar comportamento às classes que são criadas a partir delas. Elas permitem personalizar a forma como as classes são criadas, controlar os atributos, modificar os métodos, adicionar decoradores e assim por diante.  
+```
+class MinhaMetaclasse(type):
+    def __new__(cls, name, bases, attrs):
+        # Personaliza a criação da classe
+        # Pode modificar os atributos, adicionar comportamentos, etc.
+        return super().__new__(cls, name, bases, attrs)
+
+class MinhaClasse(metaclass=MinhaMetaclasse):
+    pass
+
+```
+Nesse exemplo, MinhaMetaclasse é uma metaclasse personalizada que herda da classe type. Ela redefine o método __new__, que é responsável por criar a classe. Na personalização desse método, podemos modificar os atributos da classe, adicionar métodos, entre outras customizações.  
+
+A classe MinhaClasse é criada usando metaclass=MinhaMetaclasse para especificar que ela deve ser uma instância de MinhaMetaclasse, ou seja, a metaclasse personalizada.  
+
+As metaclasses são usadas com menos frequência em comparação com outras funcionalidades do Python, como decoradores e herança, mas podem ser úteis para casos avançados em que é necessário um controle mais detalhado sobre a criação e o comportamento das classes.  
+
+---
 
 

@@ -9,8 +9,8 @@ def add_repr(cls):
 
 
 def my_planet(method):
-    def iner(self, *args, **kwargs):
-        result = method(self, *args, **kwargs)
+    def iner(self, *args):
+        result = method(self, *args)
 
         if 'Terra' in result:
             return 'Você está em casa'

@@ -12,9 +12,15 @@ class Ponto:
         class_name = type(self).__name__
         return f'{class_name}(x={self.x!r}, y={self.y!r}, z={self.z!r})'
 
+    def __call__(self, *args, **kwargs):
+        print(f'Chamando: {self.x} e {self.y} são os pontos.')
+
 
 p1 = Ponto(1, 2)
 p2 = Ponto(978, 876)
 print(p1)
 print(repr(p2))
 print(f'{p2!r}')
+
+p1()
+p2()
