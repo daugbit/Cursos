@@ -105,6 +105,24 @@ with path.open('a+') as file:		# Escreve algo no arquivo criado (modo append)
 
 ```
 
+### enum
+O módulo enum em Python é utilizado para criar tipos enumerados, que representam um conjunto de valores nomeados. Esses valores são geralmente utilizados para representar constantes relacionadas a um determinado domínio de problema. 
+Os tipos enumerados podem ser criados utilizando a classe Enum do módulo enum. Cada valor nomeado é criado como uma instância da classe Enum e pode ser acessado através do nome do valor. Os valores podem ter atributos adicionais, como valores numéricos ou strings, que podem ser definidos através do método __init__.  
+
+Além da classe Enum, o módulo enum também fornece outras classes úteis para trabalhar com tipos enumerados, como a classe IntEnum para criar tipos enumerados de inteiros e a classe Flag para criar tipos enumerados de bits que podem ser combinados. O uso de tipos enumerados traz vários benefícios em relação ao uso de constantes ou variáveis globais, como maior legibilidade do código e verificação de tipo mais robusta.  
+```
+from enum import Enum
+
+class Gender(Enum):
+    MALE = 'M'
+    FEMALE = 'F'
+    OTHER = 'O'
+
+    def __str__(self):
+        return self.value
+```
+
+
 ---
 
 ## MANIPULAÇÃO DE STRINGS
