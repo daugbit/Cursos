@@ -1,7 +1,7 @@
 """
 Programa que verifique se um CNPJ informado pelo usuário é matematicamente válido ou não.
 """
-from Python_3_Udemy.ex019_CNPJ import cnpj_param as cnpj
+import cnpj_param as cnpj
 
 try:
     cnpj_input = cnpj.format(str(input('CNPJ: ')))
